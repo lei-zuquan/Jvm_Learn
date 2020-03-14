@@ -73,7 +73,8 @@ public class TestDateFormat {
     public void test2(){
         LocalDate today = LocalDate.now();
 
-        DateTimeFormatter d = DateTimeFormatter.ofPattern("yyyy-MM-dd E");
+        //DateTimeFormatter d = DateTimeFormatter.ofPattern("yyyy-MM-dd E");
+        DateTimeFormatter d = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         System.out.println(d.format(today));
     }
     @Test
