@@ -1,6 +1,5 @@
 package com.java.meet.c12_24_cas;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -8,11 +7,18 @@ import java.util.concurrent.atomic.AtomicReference;
 
 @Getter
 @ToString
-@AllArgsConstructor
+//@AllArgsConstructor
 class User{
     String userName;
     int age;
 
+    public User() {
+    }
+
+    public User(String userName, int age) {
+        this.userName = userName;
+        this.age = age;
+    }
 }
 
 /**

@@ -1,9 +1,11 @@
 package com.java.basic.c05_collection.c04_map;
 
-import com.sun.tools.jdi.EventSetImpl;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 
 /**
  * Map的实现类们：

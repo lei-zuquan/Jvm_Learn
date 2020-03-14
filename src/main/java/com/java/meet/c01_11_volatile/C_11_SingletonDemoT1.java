@@ -1,7 +1,5 @@
 package com.java.meet.c01_11_volatile;
 
-import com.sun.tools.javap.resources.javap;
-
 public class C_11_SingletonDemoT1 {
     /**
     /Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/bin/javap -c com.java.meet.c01_11_volatile.C_11_SingletonDemoT1
