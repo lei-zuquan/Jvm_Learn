@@ -4,6 +4,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.concurrent.TimeUnit;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 import static java.time.temporal.ChronoUnit.YEARS;
@@ -265,6 +266,23 @@ public class Java8_NewDate {
             System.out.printf("%s can't be formatted!%n", arrivalDate);
             ex.printStackTrace();
         }
+
+
+        /**
+         * 两个时间的差值
+         */
+        LocalDateTime startTime = LocalDateTime.now();
+
+        try {
+            TimeUnit.SECONDS.sleep(80);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        LocalDateTime endTime = LocalDateTime.now();
+        // 此日期时间与结束日期时间之间的时间量
+        long spendTime = startTime.until(endTime, ChronoUnit.SECONDS);
+        System.out.println(spendTime);
 
         /*
         Java 8日期时间API的重点
