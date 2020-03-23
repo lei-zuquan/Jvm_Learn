@@ -1,4 +1,4 @@
-package com.java.basic.c05_collection;
+package com.java.basic.c05_collection.c01_collection;
 
 import java.util.Objects;
 
