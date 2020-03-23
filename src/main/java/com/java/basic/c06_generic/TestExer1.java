@@ -24,7 +24,7 @@ import java.util.Iterator;
  *      ArrayList<String> list = new ArrayList<>();
  *
  */
-public class TextExer1 {
+public class TestExer1 {
     public static void main(String[] args) {
         ArrayList<String> list = new ArrayList<>();
 
