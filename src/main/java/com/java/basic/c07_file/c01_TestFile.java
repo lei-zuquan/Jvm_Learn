@@ -48,7 +48,7 @@ import java.util.Date;
  *              isDirectory(): 是否是目录
  *
  */
-public class TestFile {
+public class c01_TestFile {
 
     @Test
     public void test9() {

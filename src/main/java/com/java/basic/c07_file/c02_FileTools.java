@@ -43,4 +43,23 @@ public class c02_FileTools {
         }
         return 0;
     }
+
+    /**
+     * 可以删除一个文件和一个目录，包括非空目录
+     */
+    public static void delete(File dir){
+        if (dir.isDirectory()){
+            // 如果是文件夹，先删除它的下一级，使得dir称为空目录
+            // （1）获取dir的所有的下一级
+            File[] listFiles = dir.listFiles();
+            //  (2) 遍历每一个下一级，把下一级给删除了
+            for (File sub : listFiles) {
+                delete(sub);
+            }
+        }
+
+        // 如果是文件和文件夹，最后都要删除自己
+        dir.delete();
+    }
+
 }
