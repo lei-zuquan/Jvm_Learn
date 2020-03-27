@@ -14,7 +14,7 @@ public class TestJvm {
     }
 
     public static void method01(){
-        int[] arr = new int[10];
+        int[] arr = new int[1000000000];
         method01();
     }
 }
