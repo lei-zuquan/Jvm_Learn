@@ -1,0 +1,1 @@
+String string = new String(data, 0, len);
