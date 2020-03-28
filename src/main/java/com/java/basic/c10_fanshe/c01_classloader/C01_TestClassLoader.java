@@ -9,7 +9,6 @@ package com.java.basic.c10_fanshe.c01_classloader;
  * @Description:
  */
 
-import java.sql.SQLOutput;
 
 /**
  * day27_01类加载的过程
@@ -34,6 +33,8 @@ import java.sql.SQLOutput;
  *
  *          当一个类初始化时，发现它的父类如果没有初始化，会先初始化父类。
  *          每一个类只会初始化一次，并且类初始化的过程是线程安全。
+ *
+ *          只是面试用？
  *
  *          哪些操作会导致类的初始化？这句话的意思，类的加载不一定就会发生类初始化。虽然大多数时候，在类的加载时直接就初始化了
  *          （1）main方法所在的类在加地昔，直接就先初始化
