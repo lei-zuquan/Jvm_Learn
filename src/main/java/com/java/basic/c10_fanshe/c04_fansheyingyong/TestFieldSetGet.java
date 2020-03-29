@@ -14,7 +14,7 @@ import org.junit.Test;
 import java.lang.reflect.Field;
 
 /**
- * day27_10使用Class对象和构造器对象创建对象
+ * day27_11使用Class对象为属性赋值
  *
  * 三、在运行期间，动态的为对象的属性赋值或获取属性值
  *
