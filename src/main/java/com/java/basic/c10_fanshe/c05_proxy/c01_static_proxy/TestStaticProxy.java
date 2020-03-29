@@ -1,4 +1,4 @@
-package com.java.basic.c10_fanshe.c05_proxy;
+package com.java.basic.c10_fanshe.c05_proxy.c01_static_proxy;
 
 /**
  * @Author: Lei
@@ -45,7 +45,7 @@ interface UserDao{
 }
 
 // 2、被代理类
-class UserDaoImpl implements UserDao{
+class UserDaoImpl implements UserDao {
 
     @Override
     public void insert() {
