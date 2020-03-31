@@ -1,4 +1,4 @@
-package com.java.z_exam.jvm;
+package com.java.z_exam.jvm_gc;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
