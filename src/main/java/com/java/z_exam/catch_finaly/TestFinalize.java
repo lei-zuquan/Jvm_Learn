@@ -1,4 +1,4 @@
-package com.java.z_exam;
+package com.java.z_exam.catch_finaly;
 
 import java.util.ArrayList;
 import java.util.List;

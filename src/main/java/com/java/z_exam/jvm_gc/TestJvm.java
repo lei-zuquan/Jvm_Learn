@@ -1,4 +1,4 @@
-package com.java.z_exam;
+package com.java.z_exam.jvm_gc;
 
 /**
  * @Author: Lei
