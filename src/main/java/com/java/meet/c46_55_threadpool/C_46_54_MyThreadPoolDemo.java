@@ -1,5 +1,6 @@
 package com.java.meet.c46_55_threadpool;
 
+import java.time.LocalTime;
 import java.util.concurrent.*;
 
 /**
@@ -137,13 +138,23 @@ public class C_46_54_MyThreadPoolDemo {
                 TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(3),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.DiscardPolicy());
+                new ThreadPoolExecutor.CallerRunsPolicy());
+        // ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常。
+        // ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常。
+        // ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
+        // ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务
+        // 设置线程池的拒绝策略为"丢弃"
 
         // 模拟10个用户来办理业务，每个用户就是一个来自外部的请求线程
         try {
             for (int i = 0; i < 30; i++) {
-                threadPool.execute(() ->{
-                    System.out.println(Thread.currentThread().getName()+"\t办理业务");
+                threadPool.execute(() -> {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(LocalTime.now() + "\t" + Thread.currentThread().getName() + "\t办理业务");
                 });
                 // 暂停一会儿线程
                 //try { TimeUnit.MILLISECONDS.sleep(200); } catch (InterruptedException e){  e.printStackTrace();}
