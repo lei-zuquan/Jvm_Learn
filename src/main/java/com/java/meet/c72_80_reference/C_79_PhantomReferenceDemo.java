@@ -18,6 +18,8 @@ import java.util.concurrent.TimeUnit;
  * 当关联的引用队列中有数据的时候，意味引用指向的堆内存中的对象被回收。通过这种方式，JVM允许我们在对象被销毁后，
  * 做一些我们自己想做的事情。
  *
+ * 虚引用，连get都不到。垃圾回收时，会往队列里扔一个通知；虚引用，管理堆外内存
+ *
  */
 public class C_79_PhantomReferenceDemo {
 

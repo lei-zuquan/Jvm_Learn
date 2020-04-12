@@ -33,12 +33,12 @@
             <version>4.12</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.51</version>
-        </dependency>
+        </dependency> -->
 
     </dependencies>
     <build>

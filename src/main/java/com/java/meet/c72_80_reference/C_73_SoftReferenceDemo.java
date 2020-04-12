@@ -60,8 +60,8 @@ public class C_73_SoftReferenceDemo {
 
 
     public static void main(String[] args) {
-        softRef_Memory_Enough();
-        // softRef_Memory_NotEnough();
+        // softRef_Memory_Enough();
+        softRef_Memory_NotEnough();
 
     }
 }
