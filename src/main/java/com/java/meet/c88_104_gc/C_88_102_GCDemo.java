@@ -24,6 +24,8 @@ import java.util.concurrent.TimeUnit;
  * 106_Linux之cpu查看vmstat
  * 107_Linux之cpu查看pidstat
  *
+ * -Xms 默认内存 1/64
+ * -Xmx 默认内存 1/4
  * 其中6、7、8是重点
  *
  * 6.GC垃圾回收算法和垃圾收集器的关系？分别是什么请你谈谈
