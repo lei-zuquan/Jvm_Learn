@@ -61,6 +61,13 @@ public class TestMethodInvoke {
         Object invoke = method.invoke(stu, "李四");
         System.out.println(invoke); // 如果method代表的方法没有返回值，那么会返回null
 
+        Class<?> impl = null;
+        impl = Class.forName("com.lei.java.Student", true, Thread.currentThread().getContextClassLoader());
+        Object o = impl.newInstance();
+        // 4、调用方法
+        Object invoke1 = method.invoke(stu, "李四222");
+        System.out.println(invoke1); // 如果method代表的方法没有返回值，那么会返回null
+
         System.out.println(stu);
 
         /**
