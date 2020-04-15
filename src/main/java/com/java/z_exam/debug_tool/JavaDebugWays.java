@@ -13,8 +13,13 @@ package com.java.z_exam.debug_tool;
  * JAVA 调试工具
  * 注意权限问题
  *      jps
- *          输出java 进程id以及启动参数
- *      jstack
+ *          输出java 进程pid以及启动参数
+ *          -q：只输出进程 ID
+ *          -m：输出传入 main 方法的参数
+ *          -l：输出完全的包名，应用主类名，jar的完全路径名
+ *          -v：输出jvm参数
+ *          -V：输出通过flag文件传递到JVM中的参数
+ *      jstack pid
  *          输出java 进程中各线程状态
  *          会检测线程间是否有死锁
  *      jmap
