@@ -22,6 +22,9 @@ import java.util.concurrent.TimeUnit;
  *          在JVM参数里增加参数
  *          -Xms10m -Xmx10m -XX:+PrintGCDetails -XX:+PrintCommandLineFlags -XX:+UseParallelGC -XX:+UseParallelOldGC
  *
+ *  java -XX:+PrintCommandLineFlags -version
+ *  打印JVM参数
+ *
  *
  */
 public class HeapTest {
