@@ -41,7 +41,7 @@ public class T11_BulkRevoke {
         Thread t2 = new Thread(() -> {
             // 这里循环了40次，达到了批量撤销的阈值
             for (int i = 0; i < 40; i++) {
-                A a = new A();
+                A a = listA.get(i);
                 synchronized (a){
                     //System.out.println("t2 第" + i + "次 A.class的输出：");
                     //System.out.println(ClassLayout.parseInstance(A.class).toPrintable());
@@ -68,7 +68,7 @@ public class T11_BulkRevoke {
         Thread t3 = new Thread(() -> {
             // 这里循环了40次，达到了批量撤销的阈值
             for (int i = 0; i < 40; i++) {
-                A a = new A();
+                A a = listA.get(i);
                 synchronized (a){
                     if (i == 20 || i == 22) {
                         System.out.println("thread3 第" + i + "次 这里触发了批量锁撤销");
