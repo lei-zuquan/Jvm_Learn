@@ -24,6 +24,7 @@ package com.java.z_exam.debug_tool;
  *          会检测线程间是否有死锁
  *      jmap
  *          dump java进程内存状态快照
+ *          如： jmap -histo 4939
  *      jhat
  *          可以建立用于分析jmap dump出的快照文件的web ui
  *          内存泄漏分析
