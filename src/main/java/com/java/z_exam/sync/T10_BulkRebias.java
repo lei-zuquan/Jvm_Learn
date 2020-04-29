@@ -15,7 +15,9 @@ import java.util.concurrent.TimeUnit;
  * @Description:
  */
 public class T10_BulkRebias {
+
     private static class A {}
+
     public static void main(String[] args) throws Exception {
         // 延时产生可偏向对象
         TimeUnit.SECONDS.sleep(5);
