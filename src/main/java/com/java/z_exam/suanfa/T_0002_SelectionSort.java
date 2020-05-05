@@ -10,7 +10,8 @@ package com.java.z_exam.suanfa;
  */
 public class T_0002_SelectionSort {
     public static void main(String[] args) {
-        int[] arr = {5,3,6,8,1,7,9,4,2};
+        //int[] arr = {5,3,6,8,1,7,9,4,2};
+        int[] arr = {5,8,5,2,9};
 
         for (int i = 0; i < arr.length; i++) {
             int minPos = i;
@@ -18,15 +19,27 @@ public class T_0002_SelectionSort {
                minPos = arr[j] < arr[minPos] ? j : minPos;
             }
 
-            System.out.println("minPos: " + minPos);
+            //System.out.println("minPos: " + minPos);
 
             swap(arr, i, minPos);
 
 
-            System.out.println("经过第" + i + "次循环之后，数组的内容：");
-            print(arr);
+            //System.out.println("经过第" + i + "次循环之后，数组的内容：");
         }
+        print(arr);
 
+    }
+
+    public static void sort(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            int minPos = i;
+            for (int j = i; j < arr.length; j++) {
+                minPos = arr[j] < arr[minPos] ? j : minPos;
+            }
+
+            swap(arr, i, minPos);
+        }
+        //print(arr);
     }
 
     private static void swap(int[] arr, int i, int j){
