@@ -1,0 +1,21 @@
+对象的创建过程
+
+pic 2
+
+volatile作用：
+    1、保持线程可见性
+    2、禁止指令重排性
+
+    cpu速度是内存的100倍
+
+
+对象在内存中的存储布局
+普通对象----------------------
+ markword   8字节
+ 类型指针 class pointer
+ 实例数据 instance data
+ 对齐
+
+
+对象头包括什么？
+    markword (锁信息、hashcode、gc信息)
