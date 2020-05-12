@@ -38,3 +38,19 @@ public class T03_AtomicInteger {
         System.out.println(m);
     }
 }
+
+/*
+
+    什么是CAS?
+        compare and swap
+        compare and exchange
+    什么是ABA问题？
+        其他线程修改数次最后值和原值相同
+
+    CAS最终怎么保证原子性，即执行不被打断？
+        最终实现
+        cmpxchg = cas 修改变量值
+        lock cmpxchg 指令
+            cmpxchg指令在多线程下也是有可能被打断，所以在加入lock指令
+            不允许其他线程访问这块内存区域的数据
+ */

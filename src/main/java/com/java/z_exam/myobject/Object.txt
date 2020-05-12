@@ -12,9 +12,9 @@ volatile作用：
 对象在内存中的存储布局
 普通对象----------------------
  markword   8字节
- 类型指针 class pointer
+ 类型指针 class pointer     4字节
  实例数据 instance data
- 对齐
+ 对齐     （8字节对齐，不足补齐）
 
 
 对象头包括什么？
