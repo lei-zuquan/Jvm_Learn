@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * @Author: Lei
  * @E-mail: 843291011@qq.com
- * @'dddddddddddddddddddDate: Created in 3:16 下午 2020/5/5
+ * @Date: Created in 3:16 下午 2020/5/5
  * @Version: 1.0
  * @Modified By:
  * @Description:
@@ -32,7 +32,9 @@ public class T_0003_DataChecker {
         Arrays.sort(arr);
         //T_0002_SelectionSort.sort(arr2);
         //T_0004_BubbleSort.sort(arr2);
-        T_0005_InsertionSort.sort(arr2);
+        //T_0005_InsertionSort.sort(arr2);
+        //T_0006_ShellSort.sort(arr2);
+        T_0007_MergeSort.sort(arr2, 0, arr2.length - 1);
 
         boolean same = true;
         for (int i = 0; i < arr2.length; i++) {

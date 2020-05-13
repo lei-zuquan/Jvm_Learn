@@ -15,10 +15,14 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 假如锁处于偏向状态，这时来了竞争者，那么他的状态是什么？
+ * 无锁：001
+ * 轻量级锁，自旋锁，无锁：00
+ * 偏向锁：101
+ * 重量级锁：10
  */
 public class T04_HelloJOL {
     public static void main(String[] args) throws Exception {
-        //TimeUnit.SECONDS.sleep(5);
+        // TimeUnit.SECONDS.sleep(5);
 
         Object o = new Object();
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
