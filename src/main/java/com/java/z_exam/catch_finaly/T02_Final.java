@@ -11,7 +11,7 @@ import java.util.List;
  * @Modified By:
  * @Description:
  */
-public class TestFinalize {
+public class T02_Final {
 
     public static void main(String[] args) {
         // 虽然被final修饰，但list是集合。集合存储地址，可以继续往地址里添加内容
