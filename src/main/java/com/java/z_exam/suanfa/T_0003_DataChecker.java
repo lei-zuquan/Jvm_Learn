@@ -11,6 +11,8 @@ import java.util.Random;
  * @Modified By:
  * @Description:
  */
+
+// 校对器
 public class T_0003_DataChecker {
 
     static int[] generateRandomArray() {

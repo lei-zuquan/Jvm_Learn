@@ -10,6 +10,8 @@ package com.java.z_exam.suanfa;
  */
 
 /*
+ * 插入排序
+ *
  * 对于基本有序的数组最好用
  * 稳定
  *
