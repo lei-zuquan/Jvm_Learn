@@ -15,9 +15,9 @@ public class SearchOfMid {
     public static void main(String[] args) {
         int [] arr = {1,2,3,4,5,6,7,8,9};
         //常规方式
-        System.out.println(binarySearch(arr,1));
+        //System.out.println(binarySearch2(arr,9));
         //递归实现
-        System.out.println(recursiveFind(arr,0,arr.length-1,9));
+        System.out.println(recursiveFind2(arr,0,arr.length-1,2));
     }
     /*
      * 二分查找，返回索引
@@ -60,6 +60,71 @@ public class SearchOfMid {
         } else {
             return -1;
         }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private static int binarySearch2(int [] arr,int searchKey){
+        int start = 0;              // 二分查找起始下标值
+        int end = arr.length - 1;   // 二分查找结束下标值
+
+        while (end >= start) {
+            int mid = start + (end - start) / 2;
+            if (arr[mid] == searchKey) {
+                return mid;
+            } else if (searchKey > arr[mid]) {
+                start = mid + 1;
+            } else if (searchKey < arr[mid]) {
+                end = mid - 1;
+            }
+        }
+
+        return -1; // 返回查找数据索引下标值
+    }
+
+
+    private static int recursiveFind2(int[] arr,int start,int end,int searchKey){
+
+        if (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (arr[mid] == searchKey){
+                return mid;
+            }
+
+            if (searchKey > arr[mid]){
+                start = mid + 1;
+            } else if (searchKey < arr[mid]){
+                end = mid - 1;
+            }
+
+            return recursiveFind2(arr, start, end, searchKey);
+        } else {
+            return -1;
+        }
+
     }
 }
 
