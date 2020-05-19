@@ -9,37 +9,42 @@ package com.java.z_exam.suanfa;
  * @Description:
  */
 
-// 选择排序
+/*
+    选择排序
+
+    选择：时间复杂度n^2，空间复杂度1，不稳定
+        基本不用，不稳，最简单但是最没用的排序算法，也有优化空间
+
+    选择排序的思想
+        第一次从待排序的数据中选出最小的一个元素，存放在序列的起始位置，然后再从剩余的未排序元素中寻找到最小元素，
+        然后放到已排序的序列的末尾。以此类推，直到全部待排序的数据元素的个数为零。
+
+
+ */
 public class T_0002_SelectionSort {
     public static void main(String[] args) {
-        //int[] arr = {5,3,6,8,1,7,9,4,2};
-        int[] arr = {5,8,5,2,9};
+        int[] arr = {5,3,6,8,1,7,9,4,2};
+        //int[] arr = {5,8,5,2,9};
 
+        selectSort(arr);
+
+        print(arr);
+    }
+
+    public static void selectSort(int[] arr){
         for (int i = 0; i < arr.length; i++) {
-            int minPos = i;
+            int minPos = i; // 取当前剩下数组第一个元素下标为最小下标
             for (int j = i; j < arr.length; j++) {
-               minPos = arr[j] < arr[minPos] ? j : minPos;
+                // 找到比当前元素值更小的下标，从当前数组序列头开始一直到结尾
+                minPos = arr[j] < arr[minPos] ? j : minPos;
             }
 
             //System.out.println("minPos: " + minPos);
 
+            // 找到后，将两个值进行交换
             swap(arr, i, minPos);
-
 
             //System.out.println("经过第" + i + "次循环之后，数组的内容：");
-        }
-        print(arr);
-
-    }
-
-    public static void sort(int[] arr){
-        for (int i = 0; i < arr.length; i++) {
-            int minPos = i;
-            for (int j = i; j < arr.length; j++) {
-                minPos = arr[j] < arr[minPos] ? j : minPos;
-            }
-
-            swap(arr, i, minPos);
         }
         //print(arr);
     }
@@ -55,4 +60,6 @@ public class T_0002_SelectionSort {
             System.out.print(arr[i] + " ");
         }
     }
+
+
 }
