@@ -13,28 +13,30 @@ package com.java.z_exam.suanfa.find;
 public class SearchOfMid {
 
     public static void main(String[] args) {
-        int [] arr = {1,3,4,5,2,5,1,8,9,5};
+        int [] arr = {1,2,3,4,5,6,7,8,9};
         //常规方式
-        System.out.println(find(arr,9));
+        System.out.println(binarySearch(arr,1));
         //递归实现
         System.out.println(recursiveFind(arr,0,arr.length-1,9));
     }
     /*
      * 二分查找，返回索引
      */
-    private static int find(int [] arr,int searchKey){
+    private static int binarySearch(int [] arr,int searchKey){
         int lowerBound = 0;
         int upperBound = arr.length -1;
-        int curIn;
+        int mid; // 二分查找，每次查找对应的索引值
         while (lowerBound <= upperBound){
-            curIn = (lowerBound + upperBound) / 2;
-            if (arr[curIn] == searchKey) {
-                return curIn;
+            //mid = (lowerBound + upperBound) / 2; // 可能数值溢出
+            mid = lowerBound + (upperBound - lowerBound) / 2;
+
+            if (arr[mid] == searchKey) {
+                return mid;
             } else {
-                if (arr[curIn] < searchKey) {
-                    lowerBound = curIn + 1;
+                if (arr[mid] < searchKey) {
+                    lowerBound = mid + 1;
                 } else {
-                    upperBound = curIn - 1;
+                    upperBound = mid - 1;
                 }
             }
         }
@@ -45,13 +47,15 @@ public class SearchOfMid {
      */
     private static int recursiveFind(int[] arr,int start,int end,int searchKey){
         if (start <= end) {
-            int middle =  (start+end)/2;
-            if (searchKey == arr[middle]) {
-                return middle;
-            } else if (searchKey < arr[middle]) {
-                return recursiveFind(arr, start, middle - 1, searchKey);
+            //int mid = (start + end) / 2; // 可能数值溢出
+            int mid = start + (end - start) / 2;
+
+            if (searchKey == arr[mid]) {
+                return mid;
+            } else if (searchKey < arr[mid]) {
+                return recursiveFind(arr, start, mid - 1, searchKey);
             } else {
-                return recursiveFind(arr, middle + 1, end, searchKey);
+                return recursiveFind(arr, mid + 1, end, searchKey);
             }
         } else {
             return -1;
