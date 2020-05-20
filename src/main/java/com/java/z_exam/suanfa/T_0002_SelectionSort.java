@@ -34,7 +34,7 @@ public class T_0002_SelectionSort {
     public static void selectSort(int[] arr){
         for (int i = 0; i < arr.length; i++) {
             int minPos = i; // 取当前剩下数组第一个元素下标为最小下标
-            for (int j = i; j < arr.length; j++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 // 找到比当前元素值更小的下标，从当前数组序列头开始一直到结尾
                 minPos = arr[j] < arr[minPos] ? j : minPos;
             }
