@@ -43,28 +43,32 @@ public class T_0005_InsertionSort {
     public static void main(String[] args) {
         //int[] a ={9,3,1,4,6,8,7,5,2};
         //sort(a);
-        int[] a ={9,6,1,3,5};
+        int[] a = {9, 6, 1, 3, 5};
         insertionSort(a);
         print(a);
 
     }
 
-    public static void insertionSort(int[] arr){
-
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i; j >=0; j--) {
-                if (arr[j+1] < arr[j]) {
-                    swap(arr, j, j+1);
+    /*
+        插入排序设计思想：
+            1、对前面有序的数组进行插入式，即插入到合适的位置
+        时间复杂度O(n^2)
+        空间复杂度O(1)
+        稳定性：稳定
+     */
+    public static void insertionSort(int[] arr) {
+        for (int time = 1; time < arr.length; time++) {
+            for (int i = time; i > 0; i--) {
+                if (arr[i] < arr[i - 1]) {
+                    swap(arr, i, i - 1);
                 }
             }
 
             print(arr);
-            System.out.println("第" + (i+1) + "次");
+            System.out.println("第" + (time + 1) + "次");
         }
 
     }
-
-
 
 
     public static void sort (int[] a){
