@@ -29,7 +29,7 @@ public class T_0003_DataChecker {
     static void check() {
         boolean same = true;
 
-        for (int times = 0; times < 1000; times++) {
+        for (int times = 0; times < 10; times++) {
             int[] arr = generateRandomArray();
             int[] arr2 = new int[arr.length];
             System.arraycopy(arr, 0, arr2, 0, arr.length);
@@ -37,8 +37,8 @@ public class T_0003_DataChecker {
             Arrays.sort(arr);
             //T_0002_SelectionSort.selectSort(arr2);
             //T_0004_BubbleSort.bubbleSort(arr2);
-            T_0005_InsertionSort.insertionSort(arr2);
-            //T_0006_ShellSort.sort(arr2);
+            //T_0005_InsertionSort.insertionSort(arr2);
+            T_0006_ShellSort.shellSort(arr2);
             //T_0007_MergeSort.sort(arr2, 0, arr2.length - 1);
             //T_0008_QuickSort.sort(arr2, 0, arr2.length - 1);
 
