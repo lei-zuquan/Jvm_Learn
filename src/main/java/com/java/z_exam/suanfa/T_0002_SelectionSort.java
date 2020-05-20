@@ -23,30 +23,41 @@ package com.java.z_exam.suanfa;
  */
 public class T_0002_SelectionSort {
     public static void main(String[] args) {
-        int[] arr = {5,3,6,8,1,7,9,4,2};
+        int[] arr = {5, 3, 6, 8, 1, 7, 9, 4, 2};
         //int[] arr = {5,8,5,2,9};
-
         selectSort(arr);
 
         print(arr);
     }
 
-    public static void selectSort(int[] arr){
-        for (int i = 0; i < arr.length; i++) {
-            int minPos = i; // 取当前剩下数组第一个元素下标为最小下标
-            for (int j = i + 1; j < arr.length; j++) {
+    /*
+      选择排序思想：
+      从数据中遍历，选择最小的一个数出来，与第一个元素进行交换；完成一次
+      再从剩余数组中，选择最小的一个数出来，与第一个元素进行交换；完成二次
+      如此类推，直至完成数组排序
+
+      时间复杂度 O(n^2)
+      空间复杂度 O(1)
+      稳定性：不稳
+     */
+    public static void selectSort(int[] arr) {
+
+        for (int time = 0; time < arr.length - 1; time++) {
+            int min = time; // 取当前剩下数组第一个元素下标为最小下标
+            for (int i = time; i < arr.length - 1; i++) {
                 // 找到比当前元素值更小的下标，从当前数组序列头开始一直到结尾
-                minPos = arr[j] < arr[minPos] ? j : minPos;
+                if (arr[i + 1] < arr[min]) {
+                    min = i + 1;
+                }
             }
 
             //System.out.println("minPos: " + minPos);
-
             // 找到后，将两个值进行交换
-            swap(arr, i, minPos);
+            swap(arr, min, time);
 
             //System.out.println("经过第" + i + "次循环之后，数组的内容：");
         }
-        //print(arr);
+
     }
 
     private static void swap(int[] arr, int i, int j){
