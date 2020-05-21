@@ -11,6 +11,8 @@ package com.java.z_exam.suanfa;
 
 /**
  * 归并排序
+ * TIM SORT
+ * JAVA 对象排序专用
  * （前提是知道 两个数据已经排好序，使用递归方法）
  *
  * 重新分配与原空间等长
@@ -26,11 +28,19 @@ package com.java.z_exam.suanfa;
  *      O(n)
  *
  * 应用场景：
+ *      java、python对象排序应用非常多，要求稳定
  *      对象排序一般要求稳定
  *      java对象排序使用都是归并排序
  *
- * TimSort（优化后的对象排序，如果面试中回复了此排序，对面试官印象大增）
+ * TimSort（优化后的对象排序，如果面试中回复了此排序，对面试官印象大增）（Arrays.sort(Object) 1440行）
+ * TimSort 是改进中的 MergeSort 归并排序（用到了插入排序（二分插入排序），也用到了归并排序）
  *      一下分很多块，两两归并，两两归并
+ *
+ * 归并排序设计思想：
+ *      1、首先将数组分成两半，两个数组已经排好充，首先把数据分成两半；
+ *      2、如果两半中没有排好序，再分成两半，直至排好序
+ *      3、分配新数组，长度与原数组等长（两个子数组从头开始一一对比，小的放下来，数组下标后移1位）
+ *      4、最后，需要判断剩余数未移动下来新数组
  */
 public class T_0007_MergeSort {
     public static void main(String[] args) {
@@ -40,6 +50,8 @@ public class T_0007_MergeSort {
 
         print(arr);
     }
+
+
 
     // 递归写法
     public static void sort(int[] arr, int left, int right){
@@ -92,5 +104,21 @@ public class T_0007_MergeSort {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+    }
+
+    /*
+        1、先实现两个已经排好序的数据进行归并
+            1，4，7，8，3，6，9
+        2、归并前，需要创建新数组与原数组等长
+        3、然后两个子数组两两比较大小，较小的放到新数组第一位，下标后移一位
+        4、如果有子数组有遗留，则将剩余放到新数组后面去
+     */
+
+    public static void sort_test(int[] arr){
+        merge_test(arr);
+    }
+
+    public static void merge_test(int[] arr){
+
     }
 }
