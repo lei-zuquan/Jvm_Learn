@@ -46,8 +46,8 @@ public class T_0005_InsertionSort {
         int[] a = {9, 6, 1, 3, 5};
         insertionSort(a);
         print(a);
-
     }
+
 
     /*
         插入排序设计思想：
@@ -55,7 +55,7 @@ public class T_0005_InsertionSort {
                 具体流程：
                     a.对数组第二个元素与第一个元素比较，进行插入排序；
                     b.对数组第3个元素向前2个已经排好序进行插入排序
-                    c.如此类推
+                    c.如此类推 for (int i = time; i > 0; i--) { 比较大小判断，如果满足条件进行交换 }
 
         时间复杂度O(n^2)
         空间复杂度O(1)
