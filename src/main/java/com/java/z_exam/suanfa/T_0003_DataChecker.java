@@ -38,8 +38,8 @@ public class T_0003_DataChecker {
             //T_0002_SelectionSort.selectSort(arr2);
             //T_0004_BubbleSort.bubbleSort(arr2);
             //T_0005_InsertionSort.insertionSort(arr2);
-            T_0006_ShellSort.shellSort(arr2);
-            //T_0007_MergeSort.sort(arr2, 0, arr2.length - 1);
+            //T_0006_ShellSort.shellSort(arr2);
+            T_0007_MergeSort.sort_test(arr2, 0, arr2.length - 1);
             //T_0008_QuickSort.sort(arr2, 0, arr2.length - 1);
 
             for (int i = 0; i < arr2.length; i++) {

@@ -44,9 +44,12 @@ package com.java.z_exam.suanfa;
  */
 public class T_0007_MergeSort {
     public static void main(String[] args) {
-        // int[] arr = {5,3,6,8,1,7,9,4,2};
-        int[] arr = {1,4,7,8,3,6,9}; // 前期测试尽量使用基数个
-        sort(arr, 0, arr.length - 1);
+        int[] arr = {5,3,6,8,1,7,9,4,2};
+        //int[] arr = {1,4,7,8,3,6,9}; // 前期测试尽量使用基数个
+        //int[] arr ={2,1};
+        //sort(arr, 0, arr.length - 1);
+        sort_test(arr, 0, arr.length-1);
+        //merge_test(arr, 0, arr.length /2 +1, arr.length-1);
 
         print(arr);
     }
@@ -111,14 +114,71 @@ public class T_0007_MergeSort {
             1，4，7，8，3，6，9
         2、归并前，需要创建新数组与原数组等长
         3、然后两个子数组两两比较大小，较小的放到新数组第一位，下标后移一位
-        4、如果有子数组有遗留，则将剩余放到新数组后面去
+        4、判断左边子数组是否有剩余，有则将剩余有序部分全部移入新数组中
+        5、判断右边子数组是否有剩余，有则将剩余有序部分全部移入新数组中
+        6、最后将全局排好序的数组存回原来的数组中
      */
 
-    public static void sort_test(int[] arr){
-        merge_test(arr);
+    public static void sort_test(int[] arr, int left, int right){
+        if (left == right) return;
+
+        int mid = left + (right - left) / 2;
+
+        sort_test(arr, left, mid);
+
+        sort_test(arr, mid+1, right);
+
+        int leftPrt = left;
+        int rightPrt = mid + 1;
+        merge_test(arr, leftPrt, rightPrt, right);
     }
 
-    public static void merge_test(int[] arr){
+    public static void merge_test(int[] arr, int leftPrt, int rightPrt, int rightBound){
+        int mid = rightPrt - 1;
+        int[] newTempArr = new int[rightBound - leftPrt + 1];
 
+
+        int leftStart = leftPrt;
+        int finishIndex = 0;
+
+        while (leftPrt <= mid && rightPrt <= rightBound) { // 没有完成两个有序数据排序
+            if (arr[leftPrt] <= arr[rightPrt]) {
+                newTempArr[finishIndex++] = arr[leftPrt++];
+            } else {
+                newTempArr[finishIndex++] = arr[rightPrt++];
+            }
+        }
+
+        // 判断左边子数组是否有剩余，有则将剩余有序部分全部移入新数组中
+        while (leftPrt <= mid) newTempArr[finishIndex++] = arr[leftPrt++];
+
+        // 判断右边子数组是否有剩余，有则将剩余有序部分全部移入新数组中
+        while (rightPrt <= rightBound) newTempArr[finishIndex++] = arr[rightPrt++];
+
+        // 最后将全局排好序的数组存回原来的数组中
+        for (int i = 0; i < newTempArr.length; i++) {
+            arr[i+leftStart] = newTempArr[i];
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
