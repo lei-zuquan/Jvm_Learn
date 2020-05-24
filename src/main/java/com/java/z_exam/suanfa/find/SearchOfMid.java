@@ -106,8 +106,7 @@ public class SearchOfMid {
     }
 
 
-    private static int recursiveFind2(int[] arr,int start,int end,int searchKey){
-
+    private static int recursiveFind2(int[] arr,int start,int end,int searchKey) {
         if (start <= end) {
             int mid = start + (end - start) / 2;
             if (arr[mid] == searchKey){
@@ -124,7 +123,6 @@ public class SearchOfMid {
         } else {
             return -1;
         }
-
     }
 }
 
