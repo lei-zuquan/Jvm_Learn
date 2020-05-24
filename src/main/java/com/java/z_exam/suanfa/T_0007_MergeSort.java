@@ -47,8 +47,8 @@ public class T_0007_MergeSort {
         int[] arr = {5,3,6,8,1,7,9,4,2};
         //int[] arr = {1,4,7,8,3,6,9}; // 前期测试尽量使用基数个
         //int[] arr ={2,1};
-        //sort(arr, 0, arr.length - 1);
-        sort_test(arr, 0, arr.length-1);
+        mergeSort(arr, 0, arr.length - 1);
+        //sort_test(arr, 0, arr.length-1);
         //merge_test(arr, 0, arr.length /2 +1, arr.length-1);
 
         print(arr);
@@ -57,15 +57,15 @@ public class T_0007_MergeSort {
 
 
     // 递归写法
-    public static void sort(int[] arr, int left, int right){
+    public static void mergeSort(int[] arr, int left, int right){
         if (left == right) return;
 
         // 分成两半
         int mid = left + (right - left) / 2; // (left + right) / 2 // right + left 可能会越界
         // 左边排序
-        sort(arr, left, mid);
+        mergeSort(arr, left, mid);
         // 右边排序
-        sort(arr, mid+1, right);
+        mergeSort(arr, mid+1, right);
 
         // 最后将左右两边合并
         merge(arr, left, mid + 1, right);
