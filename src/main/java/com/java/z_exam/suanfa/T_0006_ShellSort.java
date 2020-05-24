@@ -54,7 +54,7 @@ public class T_0006_ShellSort {
             //System.err.print("Arrays.sort(arr) time:" + (after - before));
 
             before = System.currentTimeMillis();
-            T_0006_ShellSort.sort(arr2);
+            T_0006_ShellSort.shellSortLower(arr2);
             after = System.currentTimeMillis();
             //System.err.print("\t\tshellSort arr.length/2 time:" + (after - before));
 
@@ -119,14 +119,7 @@ public class T_0006_ShellSort {
         System.out.println("shellSort gap = Knuth序列： processTimes:" + processTimes);
     }
 
-    public static void sort (int[] arr){
-        // Knuth序列
-        // h = 1
-        // h = 3*h + 1
-//        int h = 1;
-//        while (h <= arr.length / 3){
-//            h = h*3 + 1;
-//        }
+    public static void shellSortLower (int[] arr){
         int processTimes = 0;
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < arr.length; i++) {
