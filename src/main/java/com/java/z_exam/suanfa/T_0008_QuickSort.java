@@ -31,11 +31,11 @@ package com.java.z_exam.suanfa;
  *
  *
  * 快速排序核心思想：
- *      每次都取数组的第一个元素作为基准元素，凡是大于这个基准元素的都放在它的右边，凡是小于这个基准元素的都放在它的左边，具体步骤如下：
- *          1、设置两个变量i 和 j（也称为哨兵），令序列第一个元素为基准元素。
- *          2、i 指向序列的最左边，j 指向序列的最右边，j从右往左试探，i从左往右试探，直到j找到小于基准的数就停止，i 找到大小基准的数就停止，
- *              交换i 和 j 指向的两个数， j继续住左试探，i继续往右试探
- *          3、如果i 与 j相遇，则i 或 j上的元素与基准元素交换，则这一轮排序结束。
+ *      每次都取数组的倒数第一个元素作为基准元素，凡是大于这个基准元素的都放在它的右边，凡是小于这个基准元素的都放在它的左边，具体步骤如下：
+ *          1、设置两个变量left 和 right（也称为哨兵），令序列倒数第一个元素为基准元素。
+ *          2、left 指向序列的最左边，right 指向序列的最右边，right从右往左试探，left从左往右试探，直到right找到小于基准的数就停止，left 找到大小基准的数就停止，
+ *              交换left 和 right 指向的两个数， right继续住左试探，left继续往右试探
+ *          3、如果left 与 right相遇，则 left 上的元素与基准元素交换，则这一轮排序结束。
  *          对基准元素两边的序列重复以上操作。
  *
  * bug问题查找思路：
@@ -73,21 +73,21 @@ public class T_0008_QuickSort {
         int[] arr = {7, 3, 2, 10, 8, 1, 9, 5, 4, 6}; //
         //int[] arr = {4, 6};
 
-        sort(arr, 0, arr.length - 1);
+        quikcSort(arr, 0, arr.length - 1);
 
         print(arr);
     }
 
     // leftBound 左边位置，rightBound 右边位置
-    public static void sort(int[] arr, int leftBound, int rightBound) {
+    public static void quikcSort(int[] arr, int leftBound, int rightBound) {
         if (leftBound >= rightBound) return;
 
         int mid = partition(arr, leftBound, rightBound);
 
         // 继续处理左边的序列
-        sort(arr, leftBound, mid -1);
+        quikcSort(arr, leftBound, mid -1);
         // 继续处理右边的序列
-        sort(arr, mid+1, rightBound);
+        quikcSort(arr, mid+1, rightBound);
     }
 
     // 分区
