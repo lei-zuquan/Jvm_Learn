@@ -42,7 +42,6 @@ package com.java.z_exam.suanfa;
 public class T_0005_InsertionSort {
     public static void main(String[] args) {
         //int[] a ={9,3,1,4,6,8,7,5,2};
-        //sort(a);
         int[] a = {9, 6, 1, 3, 5};
         insertionSort(a);
         print(a);
@@ -73,19 +72,6 @@ public class T_0005_InsertionSort {
             System.out.println("第" + (time + 1) + "次");
         }
 
-    }
-
-
-    public static void sort (int[] a){
-        for (int i = 1; i < a.length; i++) {
-            for (int j = i; j > 0 && (a[j] < a[j-1]); j--) {
-                //if (a[j] < a[j-1]){
-                swap(a, j, j - 1);
-                print(a);
-                System.out.println("第" + j + "次");
-                //}
-            }
-        }
     }
 
 
