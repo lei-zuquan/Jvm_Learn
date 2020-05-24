@@ -24,6 +24,7 @@ public class T04_HelloJOL {
     public static void main(String[] args) throws Exception {
         // TimeUnit.SECONDS.sleep(5);
 
+        //A o = new A();
         Object o = new Object();
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
 
@@ -31,4 +32,8 @@ public class T04_HelloJOL {
             System.out.println(ClassLayout.parseInstance(o).toPrintable());
         }
     }
+}
+
+class A {
+    int a = 1;
 }
