@@ -31,7 +31,7 @@ public class T_0009_CountSortTest {
     @Test
     public void testSort(){
         int[] a = generateRandomArray();
-        int[] result = T_0009_CountSort.sort(a);
+        int[] result = T_0009_CountSort.countSort(a);
         Arrays.sort(a);
         boolean same = true;
 
