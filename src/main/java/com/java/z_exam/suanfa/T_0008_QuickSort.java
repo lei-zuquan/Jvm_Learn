@@ -73,21 +73,21 @@ public class T_0008_QuickSort {
         int[] arr = {7, 3, 2, 10, 8, 1, 9, 5, 4, 6}; //
         //int[] arr = {4, 6};
 
-        quikcSort(arr, 0, arr.length - 1);
+        quickSort(arr, 0, arr.length - 1);
 
         print(arr);
     }
 
     // leftBound 左边位置，rightBound 右边位置
-    public static void quikcSort(int[] arr, int leftBound, int rightBound) {
+    public static void quickSort(int[] arr, int leftBound, int rightBound) {
         if (leftBound >= rightBound) return;
 
         int mid = partition(arr, leftBound, rightBound);
 
         // 继续处理左边的序列
-        quikcSort(arr, leftBound, mid -1);
+        quickSort(arr, leftBound, mid -1);
         // 继续处理右边的序列
-        quikcSort(arr, mid+1, rightBound);
+        quickSort(arr, mid+1, rightBound);
     }
 
     // 分区
