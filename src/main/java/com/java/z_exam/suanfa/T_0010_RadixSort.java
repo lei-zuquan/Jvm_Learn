@@ -30,6 +30,15 @@ import java.util.SortedMap;
  *          空间复杂度变高
  *
  */
+/*
+421,240,115,532,305,430,124
+对个位数按桶进行分类，排序
+240,430,421,532,124,115,305
+对十位数按桶进行分类，排序
+305,115,421,124,430,532,240
+对百位数按桶进行分类，排序
+115,124,240,305,421,430,532
+ */
 public class T_0010_RadixSort {
     public static void main(String[] args) {
         int[] arr = {421,240,115,532,305,430,124};
@@ -44,6 +53,7 @@ public class T_0010_RadixSort {
         int[] result = new int[arr.length];
         int[] count = new int[10];
 
+        // 第一步，应该先求最高位数
 
         for (int i = 0; i < 3; i++) {
             int division = (int)Math.pow(10, i);
