@@ -1,7 +1,6 @@
 package com.java.z_exam.suanfa;
 
 import java.util.Arrays;
-import java.util.SortedMap;
 
 /**
  * @Author: Lei
@@ -17,8 +16,8 @@ import java.util.SortedMap;
  * 非比较排序
  * 桶思想的一种
  * 多关键字排序
- * 时间复杂度O(N)
- * 空间复杂度O(k*N)
+ * 时间复杂度 O( N*k)
+ * 空间复杂度 O(N + k)
  * 稳定排序
  *
  * 总结：
@@ -43,7 +42,7 @@ public class T_0010_RadixSort {
     public static void main(String[] args) {
         int[] arr = {421,240,115,532,305,430,124};
 
-        int [] result = sort(arr);
+        int[] result = radixSort(arr);
         // 第一步，应该先求最高位数
 
         System.out.println(Arrays.toString(result));
@@ -82,6 +81,47 @@ public class T_0010_RadixSort {
             System.arraycopy(result, 0, arr, 0, arr.length);
             Arrays.fill(count, 0);
         }
+
+        return result;
+    }
+
+    public static int[] radixSort(int[] arr) {
+        int[] result = new int[arr.length];
+
+        int[] count = new int[10]; // 0~9 十个数
+
+        for (int time = 0; time < 3; time++) {
+
+            int pow = (int) Math.pow(10, time);
+
+            for (int i = 0; i < arr.length; i++) {
+                // 将个数取出来，对个数位进行桶计数
+                int mod = arr[i] / pow % 10;
+                count[mod]++;
+            }
+
+            // 累加数组，数组值对应排序后下标值+1
+            for (int i = 1; i < count.length; i++) {
+                count[i] = count[i] + count[i - 1];
+            }
+
+            // 遍历原数组421,240,115,532,305,430,124
+            for (int i = arr.length - 1; i >= 0; i--) {
+                // 将个数取出来，对个数位进行桶计数
+                int mod = arr[i] / pow % 10;
+                result[--count[mod]] = arr[i];
+            }
+
+            System.out.println("第" + time + " 次基数排序：" + Arrays.toString(count));
+
+
+            // 将排序好的数组，还原回arr，继续下一位排序
+            System.arraycopy(result, 0, arr, 0, arr.length);
+            // 清空count计数数组
+            Arrays.fill(count, 0);
+            System.out.println("第" + time + " 次数组后排序：" + Arrays.toString(arr));
+        }
+
 
         return result;
     }
