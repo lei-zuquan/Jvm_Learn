@@ -1,4 +1,4 @@
-package com.java.z_exam.suanfa.find;
+package com.java.z_exam.algorithm.find;
 
 /**
  * @Author: Lei

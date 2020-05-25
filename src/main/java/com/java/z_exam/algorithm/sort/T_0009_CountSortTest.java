@@ -1,4 +1,4 @@
-package com.java.z_exam.suanfa;
+package com.java.z_exam.algorithm.sort;
 
 import org.junit.Test;
 
