@@ -160,6 +160,33 @@ public class C03_TowWayLinkList <T> implements Iterable<T> {
         return last.item;
     }
 
+    public void reverse(){
+        if (N==0){
+            //当前是空链表，不需要反转
+            return;
+        }
+        reverse(head.next);
+    }
+
+    /**
+     * @param curr 当前遍历的结点
+     * @return 反转后当前结点上一个结点
+     * */
+    public Node reverse(Node curr){
+        //已经到了最后一个元素
+        if (curr.next==null){
+            //反转后，头结点应该指向原链表中的最后一个元素
+            head.next=curr; return curr;
+        }
+        //当前结点的上一个结点
+        Node pre = reverse(curr.next);
+        pre.next = curr;
+        //当前结点的下一个结点设为null
+        curr.next=null;
+        //返回当前结点
+        return curr;
+    }
+
 
     @Override
     public Iterator<T> iterator() {
