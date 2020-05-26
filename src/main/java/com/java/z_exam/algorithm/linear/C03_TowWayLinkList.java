@@ -176,7 +176,8 @@ public class C03_TowWayLinkList <T> implements Iterable<T> {
         //已经到了最后一个元素
         if (curr.next==null){
             //反转后，头结点应该指向原链表中的最后一个元素
-            head.next=curr; return curr;
+            head.next=curr;
+            return curr;
         }
         //当前结点的上一个结点
         Node pre = reverse(curr.next);
