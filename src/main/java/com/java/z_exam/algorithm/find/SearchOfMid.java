@@ -15,7 +15,7 @@ public class SearchOfMid {
     public static void main(String[] args) {
         int [] arr = {1,2,3,4,5,6,7,8,9};
         //常规方式
-        //System.out.println(binarySearch2(arr,9));
+        System.out.println(binarySearch(arr, 9));
         //递归实现
         System.out.println(recursiveFind2(arr,0,arr.length-1,2));
     }
