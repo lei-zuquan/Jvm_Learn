@@ -3,23 +3,17 @@ package com.java.z_exam.algorithm.linear;
 /**
  * @Author: Lei
  * @E-mail: 843291011@qq.com
- * @Date: Created in 10:27 下午 2020/5/26
+ * @Date: Created in 10:51 下午 2020/5/26
  * @Version: 1.0
  * @Modified By:
  * @Description:
  */
 
 /*
-快慢指针指的是定义两个指针，这两个指针的移动速度一块一慢，以此来制造出自己想要的差值，这个差值可以然
-我们找到链表上相应的结点。一般情况下，快指针的移动步长为慢指针的两倍
-
-利用快慢指针，我们把一个链表看成一个跑道，假设a的速度是b的两倍，那么当a跑完全程后，b刚好跑一半，以
-此来达到找到中间节点的目的。
-
-中间值问题
-
+使用快慢指针的思想，还是把链表比作一条跑道，链表中有环，那么这条跑道就是一条圆环跑道，在一条圆环跑道
+中，两个人有速度差，那么迟早两个人会相遇，只要相遇那么就说明有环。
  */
-public class C04_FlastSlowPointer_FindMid {
+public class C05_FastSlowPointer_CircleListCheck {
     public static void main(String[] args) {
         Node<String> first = new Node<String>("aa", null);
         Node<String> second = new Node<String>("bb", null);
@@ -36,23 +30,32 @@ public class C04_FlastSlowPointer_FindMid {
         fourth.next = fifth;
         fifth.next = six;
         six.next = seven;
-        //查找中间值
-        String mid = getMid(first);
-        System.out.println("中间值为："+mid);
+        //产生环
+        seven.next = third;
+        //判断链表是否有环
+        boolean circle = isCircle(first);
+        System.out.println("first链表中是否有环："+circle);
     }
 
     /**
-     * @param first 链表的首结点
-     * @return 链表的中间结点的值
+     * 判断链表中是否有环
+     * @param first 链表首结点
+     * @return ture为有环，false为无环
      */
-    public static String getMid(Node<String> first) {
+    public static boolean isCircle(Node<String> first) {
         Node<String> slow = first;
         Node<String> fast = first;
+
         while(fast!=null && fast.next!=null){
-            fast=fast.next.next;
-            slow=slow.next;
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (fast.equals(slow)){
+                return true;
+            }
         }
-        return slow.item;
+
+        return false;
     }
 
     //结点类
