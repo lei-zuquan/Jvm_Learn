@@ -36,6 +36,16 @@ public class T_0002_SelectionSort {
       再从剩余数组中，选择最小的一个数出来，与第一个元素进行交换；完成二次
       如此类推，直至完成数组排序
 
+        选择排序的时间复杂度分析：
+        选择排序使用了双层for循环，其中外层循环完成了数据交换，内层循环完成了数据比较，所以我们分别统计数据
+        交换次数和数据比较次数：
+          数据比较次数：
+            (N-1)+(N-2)+(N-3)+...+2+1=((N-1)+1)*(N-1)/2=N^2/2-N/2;
+          数据交换次数：
+            N-1
+          时间复杂度：N^2/2-N/2+（N-1）=N^2/2+N/2-1;
+            根据大O推导法则，保留最高阶项，去除常数因子，时间复杂度为O(N^2)
+
       时间复杂度 O(n^2)
       空间复杂度 O(1)
       稳定性：不稳
@@ -44,10 +54,10 @@ public class T_0002_SelectionSort {
 
         for (int time = 0; time < arr.length - 1; time++) {
             int min = time; // 取当前剩下数组第一个元素下标为最小下标
-            for (int i = time; i < arr.length - 1; i++) {
+            for (int i = time + 1; i < arr.length; i++) {
                 // 找到比当前元素值更小的下标，从当前数组序列头开始一直到结尾
-                if (arr[i + 1] < arr[min]) {
-                    min = i + 1;
+                if (arr[i] < arr[min]) {
+                    min = i;
                 }
             }
 
@@ -66,11 +76,9 @@ public class T_0002_SelectionSort {
         arr[j] = temp;
     }
 
-    private static void print(int[] arr){
+    private static void print(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
     }
-
-
 }

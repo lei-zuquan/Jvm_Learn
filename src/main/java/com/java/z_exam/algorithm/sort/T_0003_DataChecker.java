@@ -35,12 +35,12 @@ public class T_0003_DataChecker {
             System.arraycopy(arr, 0, arr2, 0, arr.length);
 
             Arrays.sort(arr);
-            //T_0002_SelectionSort.selectSort(arr2);
+            T_0002_SelectionSort.selectSort(arr2);
             //T_0004_BubbleSort.bubbleSort(arr2);
             //T_0005_InsertionSort.insertionSort(arr2);
             //T_0006_ShellSort.shellSort(arr2);
             //T_0007_MergeSort.mergeSort(arr2, 0, arr2.length - 1);
-            T_0008_QuickSort.quickSort(arr2, 0, arr2.length - 1);
+            //T_0008_QuickSort.quickSort(arr2, 0, arr2.length - 1);
 
             for (int i = 0; i < arr2.length; i++) {
                 if (arr[i] != arr2[i]) {
