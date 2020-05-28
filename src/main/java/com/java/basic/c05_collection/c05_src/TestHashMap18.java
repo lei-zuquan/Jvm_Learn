@@ -11,8 +11,10 @@ package com.java.basic.c05_collection.c05_src;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
+import java.util.List;
+import java.util.Random;
 
 /**
  * day22_10源码分析：JDK1.8的HashMap
@@ -59,8 +61,71 @@ import java.util.Objects;
  */
 public class TestHashMap18 {
 
+    public static void main(String[] args) {
+        String[] titleWordArr = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        final String[] kuWordArr = generateRandomArray(1000000);
+
+        // 算法开始时间
+        long before = 0;
+        long after = 0;
+        long spend = 0;
+
+        int times;
+        times = 0;
+        before = System.currentTimeMillis();
+        List<String> findResult = new ArrayList<>();
+        for (int i = 0; i < titleWordArr.length; i++) {
+            for (int j = 0; j < kuWordArr.length; j++) {
+                if (titleWordArr[i].equals(kuWordArr[j])) {
+                    findResult.add(titleWordArr[i]);
+                }
+                times++;
+            }
+        }
+        after = System.currentTimeMillis();
+        spend = after - before;
+        System.out.println("传统方式：" + times + " 匹配次数, 耗时：" + spend + " 毫秒");
+        System.out.println(findResult.toString());
+
+        System.out.println("--------------------------------------------------------------");
+
+        // 将kuWordArr，存入HashMap
+        before = System.currentTimeMillis();
+        HashMap<String, String> hashMap = new HashMap();
+        for (int j = 0; j < kuWordArr.length; j++) {
+            hashMap.put(kuWordArr[j], kuWordArr[j]);
+        }
+
+        times = 0;
+        findResult.clear();
+
+        for (int i = 0; i < titleWordArr.length; i++) {
+            findResult.add(hashMap.get(titleWordArr[i]));
+            times++;
+        }
+        after = System.currentTimeMillis();
+        spend = after - before;
+        System.out.println("HashMap方式：" + times + " 匹配次数, 耗时：" + spend + " 毫秒");
+        System.out.println(findResult.toString());
+
+        System.out.println("--------------------------------------------------------------");
+
+
+    }
+
+    static String[] generateRandomArray(int size) {
+        Random r = new Random();
+        String[] arr = new String[size];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = r.nextInt(size) + "";
+        }
+
+        return arr;
+    }
+
     @Test
-    public void test1(){
+    public void test1() {
         HashMap hashMap = new HashMap();
 
         for (int i = 0; i < 20; i++) {
