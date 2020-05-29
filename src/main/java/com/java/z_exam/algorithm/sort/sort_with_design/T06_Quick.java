@@ -44,32 +44,64 @@ import java.util.Arrays;
     5.重复2,3,4步骤，直到左边指针的值大于右边指针的值停止。
 
  */
-public class T06_Quick {
+public class T06_Quick <T> {
     public static void main(String[] args) {
-        int[] arr = {3, 5, 6, 1, 2, 4, 7, 5};
+        Integer[] arr = {3, 6, 1, 2, 4, 7, 5};
+        //int[] arr = {3, 6};
         sort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void sort(int[] arr) {
-        int left = 0;
-        int rightBound = arr.length - 1;
+    public static void sort(Comparable[] arr){
+        sort(arr, 0, arr.length - 1);
+    }
+
+
+    private static void sort(Comparable[] arr, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+
+        //对a数组中，从lo到hi的元素进行切分
+        int mid = partition(arr, left, right);
+
+        //对左边分组中的元素进行排序
+        sort(arr, left, mid-1);
+        //对右边分组中的元素进行排序
+        sort(arr, mid+1, right);
+    }
+
+    private static int partition(Comparable[] arr, int left, int rightBound) {
+        //把最右边的元素当做基准值
         int right = rightBound - 1;
 
+        //定义一个左侧指针，初始指向最左边的元素
         while (left <= right) {
-            if (left <= right && arr[left] <= arr[rightBound]) left++;
-            if (left <= right && arr[right] > arr[rightBound]) right--;
+            if (left <= right && !greater(arr[left], arr[rightBound]) ) left++;
+
+            if (left <= right && greater(arr[right], arr[rightBound])) right--;
 
             if (left < right) {
+                //交换left和right索引处的元素
                 swap(arr, left, right);
             }
         }
 
+        //交换最后rigth索引处和基准值所在的索引处的值
         swap(arr, left, rightBound);
+
+        //right就是切分的界限
+        return left;
     }
 
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
+    /* 比较v元素是否小于w元素 */
+    private static boolean greater(Comparable v, Comparable w) {
+        return v.compareTo(w) > 0;
+    }
+
+    /*数组元素i和j交换位置 */
+    private static void swap(Comparable[] arr, int i, int j) {
+        Comparable temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }

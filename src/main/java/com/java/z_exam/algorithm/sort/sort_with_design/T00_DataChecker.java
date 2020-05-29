@@ -15,10 +15,10 @@ public class T00_DataChecker {
 
     static Integer[] generateRandomArray() {
         Random r = new Random();
-        Integer[] arr = new Integer[20];
+        Integer[] arr = new Integer[1000];
 
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(20);
+            arr[i] = r.nextInt(1000);
         }
 
         return arr;
@@ -35,7 +35,8 @@ public class T00_DataChecker {
             Arrays.sort(arr);
             //T03_Insertion.sort(arr2);
             //T04_Shell.sort(arr2);
-            T05_Merge.sort(arr2);
+            //T05_Merge.sort(arr2);
+            T06_Quick.sort(arr2);
 
             for (int i = 0; i < arr2.length; i++) {
                 if (arr[i].compareTo(arr2[i]) != 0) {
