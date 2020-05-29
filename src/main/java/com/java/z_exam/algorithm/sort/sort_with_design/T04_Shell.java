@@ -89,14 +89,21 @@ public class T04_Shell {
         第三轮：间隔为1插入排序
      */
     public static void sort(Comparable[] arr) {
+
+        // 确定增长量h的最大值
         int h = 1;
         while (h <= arr.length / 3) {
             h = h * 3 + 1;
         }
 
+        //当增长量h小于1，排序结束
         for (int gap = h; gap > 0; gap = (gap - 1) / 3) {
+            // 找到待插入的元素
             for (int startPos = gap; startPos < arr.length; startPos++) {
+                // a[i]就是待插入的元素
+                // 把a[i]插入到a[i-h],a[i-2h],a[i-3h]...序列中
                 for (int i = startPos; i >= gap; i = i - gap) {
+                    //a[j]就是待插入元素，依次和a[j-h],a[j-2h],a[j-3h]进行比较，如果a[j]小，那么 交换位置，如果不小于，a[j]大，则插入完成。
                     if (greater(arr[i - gap], arr[i])) {
                         exch(arr, i, i - gap);
                     } else {
@@ -110,10 +117,12 @@ public class T04_Shell {
 
     }
 
+    /* 比较v元素是否大于w元素 */
     private static boolean greater(Comparable v, Comparable w) {
         return v.compareTo(w) > 0;
     }
 
+    /*数组元素i和j交换位置 */
     private static void exch(Comparable[] arr, int i, int j) {
         Comparable temp = arr[i];
         arr[i] = arr[j];
