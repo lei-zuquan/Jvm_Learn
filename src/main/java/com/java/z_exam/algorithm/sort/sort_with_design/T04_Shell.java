@@ -49,7 +49,11 @@ h=h/2
     2.private static boolean greater(Comparable v,Comparable w):判断v是否大于w
     3.private static void exch(Comparable[] a,int i,int j)：交换a数组中，索引i和索引j处的值
 
+在希尔排序中，增长量h并没有固定的规则，有很多论文研究了各种不同的递增序列，但都无法证明某个序列是最
+好的，对于希尔排序的时间复杂度分析，已经超出了我们课程设计的范畴，所以在这里就不做分析了。
+我们可以使用事后分析法对希尔排序和插入排序做性能比较。
 
+通过测试发现，在处理大批量数据时，希尔排序的性能确实高于插入排序。
  */
 public class T04_Shell {
     public static void main(String[] args) {
