@@ -65,11 +65,13 @@ public class T_0005_InsertionSort {
             for (int i = time; i > 0; i--) {
                 if (arr[i] < arr[i - 1]) {
                     swap(arr, i, i - 1);
+                } else {
+                    break;
                 }
             }
 
-            print(arr);
-            System.out.println("第" + (time + 1) + "次");
+            //print(arr);
+            //System.out.println("第" + (time + 1) + "次");
         }
 
     }
