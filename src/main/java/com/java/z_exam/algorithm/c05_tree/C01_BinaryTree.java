@@ -184,6 +184,26 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
           return N;
     }
 
+    //找出整个树中最小的键
+    public Key min(){
+        Node currNode = root;
+        while (currNode.left != null) {
+            currNode = currNode.left;
+        }
+
+        return currNode.key;
+    }
+
+    //找出整个树中最大的键
+    public Key max(){
+        Node currNode = root;
+        while (currNode.right != null) {
+            currNode = currNode.right;
+        }
+
+        return currNode.key;
+    }
+
     public static void main(String[] args) {
         C01_BinaryTree<Integer, String> bt = new C01_BinaryTree<>();
         bt.put(4, "二哈");
@@ -196,5 +216,8 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         System.out.println(bt.size());
         bt.delete(1);
         System.out.println(bt.size());
+
+        System.out.println(bt.min());
+        System.out.println(bt.max());
     }
 }
