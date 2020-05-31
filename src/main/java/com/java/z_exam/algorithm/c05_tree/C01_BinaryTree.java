@@ -309,6 +309,28 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         keys.enqueue(x.key);
     }
 
+    // 使用层序遍历，获取整个树中的所有键
+    public C10_Queue<Key> layerErgodic(){
+        C10_Queue<Key> keys = new C10_Queue();
+        C10_Queue<Node> nodes = new C10_Queue();
+        nodes.enqueue(root);
+
+        while(!nodes.isEmpty()) {
+            Node n = nodes.dequeue();
+            keys.enqueue(n.key);
+
+            if (n.left != null) {
+                nodes.enqueue(n.left);
+            }
+
+            if (n.right != null) {
+                nodes.enqueue(n.right);
+            }
+        }
+
+        return keys;
+    }
+
     public static void main(String[] args) {
         /*C01_BinaryTree<Integer, String> bt = new C01_BinaryTree<>();
         bt.put(4, "二哈");
@@ -332,7 +354,10 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         //midErgodicTest();
 
         // 后序遍历
-        afterErgodicTest();
+        //afterErgodicTest();
+
+        // 层序遍历
+        layerErgodicTest();
     }
 
     private static void preErgodicTest() {
@@ -383,6 +408,24 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         tree.put("C", "3");
 
         C10_Queue<String> queue = tree.afterErgodic();
+
+        for (String key : queue) {
+            System.out.println(key+"="+tree.get(key));
+        }
+    }
+
+    private static void layerErgodicTest() {
+        C01_BinaryTree<String, String> tree = new C01_BinaryTree<>();
+        tree.put("E", "5");
+        tree.put("B", "2");
+        tree.put("G", "7");
+        tree.put("A", "1");
+        tree.put("D", "4");
+        tree.put("F", "6");
+        tree.put("H", "8");
+        tree.put("C", "3");
+
+        C10_Queue<String> queue = tree.layerErgodic();
 
         for (String key : queue) {
             System.out.println(key+"="+tree.get(key));
