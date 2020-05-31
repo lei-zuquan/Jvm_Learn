@@ -331,6 +331,26 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         return keys;
     }
 
+    // 计算整个树的最大深度
+    public int maxDepth() {
+        return maxDepth(root);
+    }
+
+    // 计算指定树x的最大深度
+    private int maxDepth(Node x){
+
+        if (x == null) {
+            return 0;
+        }
+
+        int leftDepth = maxDepth(x.left);
+
+        int rightDepth = maxDepth(x.right);
+
+        int maxDepth = leftDepth > rightDepth ? leftDepth:rightDepth;
+        return maxDepth + 1;
+    }
+
     public static void main(String[] args) {
         /*C01_BinaryTree<Integer, String> bt = new C01_BinaryTree<>();
         bt.put(4, "二哈");
@@ -357,7 +377,10 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         //afterErgodicTest();
 
         // 层序遍历
-        layerErgodicTest();
+        //layerErgodicTest();
+
+        // 树的最大深度
+        maxDepthTest();
     }
 
     private static void preErgodicTest() {
@@ -430,5 +453,21 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         for (String key : queue) {
             System.out.println(key+"="+tree.get(key));
         }
+    }
+
+    private static void maxDepthTest() {
+        C01_BinaryTree<String, String> tree = new C01_BinaryTree<>();
+        tree.put("E", "5");
+        tree.put("B", "2");
+        tree.put("G", "7");
+        tree.put("A", "1");
+        tree.put("D", "4");
+        tree.put("F", "6");
+        tree.put("H", "8");
+        tree.put("C", "3");
+
+        int maxDepth = tree.maxDepth();
+
+        System.out.println("最大深度：" + maxDepth);
     }
 }
