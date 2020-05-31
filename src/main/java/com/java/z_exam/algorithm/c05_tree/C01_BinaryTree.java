@@ -1,5 +1,8 @@
 package com.java.z_exam.algorithm.c05_tree;
 
+
+import com.java.z_exam.algorithm.c04_linear.C10_Queue;
+
 /**
  * @Author: Lei
  * @E-mail: 843291011@qq.com
@@ -204,8 +207,42 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         return currNode.key;
     }
 
+    /*
+    实现过程中，我们通过前序遍历，把,把每个结点的键取出，放入到队列中返回即可。
+    实现步骤：
+            1.把当前结点的key放入到队列中;
+            2.找到当前结点的左子树，如果不为空，递归遍历左子树
+            3.找到当前结点的右子树，如果不为空，递归遍历右子树
+     */
+
+    // 使用前序遍历，获取整个树中的所有键
+    public C10_Queue<Key> preErgodic(){
+        C10_Queue<Key> queue = new C10_Queue<>();
+        preErgodic(root, queue);
+
+        return queue;
+    }
+
+    // 使用前序遍历，把指定树x中的所有键放入到keys队列中
+    private void preErgodic(Node x, C10_Queue<Key> keys){
+        if (x == null) {
+            return;
+        }
+
+        keys.enqueue(x.key);
+
+        //1.把当前结点的key放入到队列中;
+        if (x.left != null) {
+            preErgodic(x.left, keys);
+        }
+
+        if (x.right != null) {
+            preErgodic(x.right, keys);
+        }
+    }
+
     public static void main(String[] args) {
-        C01_BinaryTree<Integer, String> bt = new C01_BinaryTree<>();
+        /*C01_BinaryTree<Integer, String> bt = new C01_BinaryTree<>();
         bt.put(4, "二哈");
         bt.put(1, "张三");
         bt.put(3, "李四");
@@ -218,6 +255,27 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         System.out.println(bt.size());
 
         System.out.println(bt.min());
-        System.out.println(bt.max());
+        System.out.println(bt.max());*/
+
+        // 前序遍历
+        preErgodicTest();
+    }
+
+    private static void preErgodicTest() {
+        C01_BinaryTree<String, String> tree = new C01_BinaryTree<>();
+        tree.put("E", "5");
+        tree.put("B", "2");
+        tree.put("G", "7");
+        tree.put("A", "1");
+        tree.put("D", "4");
+        tree.put("F", "6");
+        tree.put("H", "8");
+        tree.put("C", "3");
+
+        C10_Queue<String> queue = tree.preErgodic();
+
+        for (String key : queue) {
+            System.out.println(key+"="+tree.get(key));
+        }
     }
 }
