@@ -3,6 +3,8 @@ package com.java.z_exam.algorithm.c05_tree;
 
 import com.java.z_exam.algorithm.c04_linear.C10_Queue;
 
+import java.util.Queue;
+
 /**
  * @Author: Lei
  * @E-mail: 843291011@qq.com
@@ -241,6 +243,39 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         }
     }
 
+    // 使用中序遍历，获取整个树中的所有键
+    /*
+    实现步骤：
+            1.找到当前结点的左子树，如果不为空，递归遍历左子树
+            2.把当前结点的key放入到队列中;
+            3.找到当前结点的右子树，如果不为空，递归遍历右子树
+     */
+    public C10_Queue<Key> midErgodic() {
+        C10_Queue queue = new C10_Queue();
+        midErgodic(root, queue);
+        return queue;
+    }
+
+    // 使用中序遍历，把指定树x中的所有键放入到keys队列中
+    private void midErgodic(Node x,C10_Queue<Key> keys){
+        if (x == null) {
+            return;
+        }
+
+        //1.找到当前结点的左子树，如果不为空，递归遍历左子树
+        if (x.left != null) {
+            midErgodic(x.left, keys);
+        }
+
+        //2.把当前结点的key放入到队列中;
+        keys.enqueue(x.key);
+
+        //3.找到当前结点的右子树，如果不为空，递归遍历右子树
+        if (x.right != null) {
+            midErgodic(x.right, keys);
+        }
+    }
+
     public static void main(String[] args) {
         /*C01_BinaryTree<Integer, String> bt = new C01_BinaryTree<>();
         bt.put(4, "二哈");
@@ -258,7 +293,10 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         System.out.println(bt.max());*/
 
         // 前序遍历
-        preErgodicTest();
+        //preErgodicTest();
+
+        // 中序遍历
+        midErgodicTest();
     }
 
     private static void preErgodicTest() {
@@ -273,6 +311,24 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
         tree.put("C", "3");
 
         C10_Queue<String> queue = tree.preErgodic();
+
+        for (String key : queue) {
+            System.out.println(key+"="+tree.get(key));
+        }
+    }
+
+    private static void midErgodicTest() {
+        C01_BinaryTree<String, String> tree = new C01_BinaryTree<>();
+        tree.put("E", "5");
+        tree.put("B", "2");
+        tree.put("G", "7");
+        tree.put("A", "1");
+        tree.put("D", "4");
+        tree.put("F", "6");
+        tree.put("H", "8");
+        tree.put("C", "3");
+
+        C10_Queue<String> queue = tree.midErgodic();
 
         for (String key : queue) {
             System.out.println(key+"="+tree.get(key));
