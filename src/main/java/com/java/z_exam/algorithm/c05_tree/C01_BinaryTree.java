@@ -338,15 +338,18 @@ public class C01_BinaryTree<Key extends Comparable<Key>, Value> {
 
     // 计算指定树x的最大深度
     private int maxDepth(Node x){
-
+        //1.如果根结点为空，则最大深度为0；
         if (x == null) {
             return 0;
         }
 
+        //2.计算左子树的最大深度；
         int leftDepth = maxDepth(x.left);
 
+        //3.计算右子树的最大深度；
         int rightDepth = maxDepth(x.right);
 
+        //4.当前树的最大深度=左子树的最大深度和右子树的最大深度中的较大者+1
         int maxDepth = leftDepth > rightDepth ? leftDepth:rightDepth;
         return maxDepth + 1;
     }
