@@ -27,6 +27,7 @@ CREATE TABLE `news_word_grade` (
   
   `word_grade_name` VARCHAR(100) NOT NULL COMMENT '舆情词等级名称',
   `word_grade_value` INT NOT NULL DEFAULT 0 COMMENT '舆情词等级对应的舆情值',
+  `word_weak_value` DECIMAL(10, 3) NOT NULL DEFAULT 0.1 COMMENT '舆情词衰减值，保留小数点后三位',
   `mark` VARCHAR(100) DEFAULT NULL COMMENT '舆情值',
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
@@ -51,6 +52,7 @@ CREATE TABLE `news_media_grade` (
   
   `media_grade_name` VARCHAR(100) NOT NULL COMMENT '媒体等级名称',
   `media_grade_value` SMALLINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '媒体等级值, 1~100可取',
+  `media_weak_value` DECIMAL(10, 3) NOT NULL DEFAULT 0.1 COMMENT '媒体衰减值，保留小数点后三位',
   `mark` VARCHAR(100) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
@@ -240,4 +242,6 @@ INSERT  INTO `news_word`(`id`,`word`) VALUES (1,'恩仇录'),(2,'铤而走险'),
 
 -- SELECT VERSION();
 -- update news_word set news_word_grade_id=400 WHERE word_hash=CRC32('2') AND word='2';
+
+
 
