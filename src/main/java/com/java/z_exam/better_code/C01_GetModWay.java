@@ -1,7 +1,5 @@
 package com.java.z_exam.better_code;
 
-import java.util.HashMap;
-
 /**
  * @Author: Lei
  * @E-mail: 843291011@qq.com
@@ -37,9 +35,6 @@ xxx % 16 = 2 
  */
 public class C01_GetModWay {
     public static void main(String[] args) {
-
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
-        hashMap.put(1, 2);
         int times = 100000;
         int modInt = 2 << 3;
         getModWay1(times, modInt);
