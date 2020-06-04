@@ -49,14 +49,14 @@ public class C02_GetNewWordGrade {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < newsTimes; i++) {
             for (int j = 1; j <= 10; j++) { // 假设每篇文章有10个词
-                // 如果直接与DB查询匹配（因DB建立了B+树索引），假如每次1ms毫秒，共需要：7*10000 * 10 /1000 = 700秒完成
+                // 如果直接与DB查询匹配（因DB建立了B+树索引），假如每次1ms毫秒，共需要：7*10000 * 10 /1000 = 700秒完成，700*1000毫秒
                 // 如果与hashMap匹配
                 Integer wordGradeValue = wordHashMap.get(r.nextInt(wordCnt) + "");
                 //System.out.println(wordGradeValue);
             }
         }
         long endTime = System.currentTimeMillis();
-        System.out.println("spend time:" + (endTime - startTime));
+        System.out.println("spend time:" + (endTime - startTime)); // 104毫秒
 
     }
 

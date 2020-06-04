@@ -243,5 +243,8 @@ INSERT  INTO `news_word`(`id`,`word`) VALUES (1,'恩仇录'),(2,'铤而走险'),
 -- SELECT VERSION();
 -- update news_word set news_word_grade_id=400 WHERE word_hash=CRC32('2') AND word='2';
 
+EXPLAIN SELECT news_word.`word`, news_word_grade.`word_grade_value` FROM news_word_grade, news_word WHERE news_word.`news_word_grade_id` = news_word_grade.`id`;
 
+
+EXPLAIN SELECT news_word.`word`, news_word_grade.`word_grade_value` FROM news_word_grade INNER JOIN news_word WHERE news_word_grade.`id` = news_word.`news_word_grade_id`;
 

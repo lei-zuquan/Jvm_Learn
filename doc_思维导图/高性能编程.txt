@@ -1,1 +1,30 @@
 1.对某数2的n次方取模，如：xx % n^2，可以使用xx & (n - 1)
+
+2.各级数据缓存读取效率对比
+    L1 cache reference                      0.05ns
+    Branch mispredict                       5ns
+    L2 cache reference                      7ns
+    Mutex lock/unlock                       25ns
+    Main memory reference                   100ns
+    Compress 1K bytes with Zippy            3,000ns
+    Send 2K bytes over 1 Gbps network       20,000ns
+    Read 1MB sequentially from memory       250,000ns
+    Round trip within same datacenter       500,000ns
+    Disk seek                               10,000,000ns
+    Read 1MB sequentially from disk         20,000,000ns
+    Send packet CA->Netherlands->CA         150,000,000ns
+    一定要减少磁盘的读取次数
+
+    L1 cache reference 读取CPU的一级缓存	                        0.5 ns
+    Branch mispredict(转移、分支预测)	                            5 ns
+    L2 cache reference 读取CPU的二级缓存	                        7 ns
+    Mutex lock/unlock 互斥锁\解锁	                                100 ns
+    Main memory reference 读取内存数据[重点]                       100 ns
+    Compress 1K bytes with Zippy 1k字节压缩	                    10,000 ns  = 10us = 0.01ms
+    Send 2K bytes over 1 Gbps network 在1Gbps的网络上发送2k字节	    20,000 ns  = 20us = 0.02ms
+    Read 1 MB sequentially from memory 从内存顺序读取1MB	        250,000 ns = 250us = 0.25ms
+    Round trip within same datacenter 从一个数据中心往返一次，ping一下[重点] 	500,000 ns = 500us = 0.50ms
+    Disk seek  磁盘搜索[重点]                                             10,000,000 ns = 10000us = 10ms
+    Read 1 MB sequentially from network 从网络上顺序读取1兆的数据	        10,000,000 ns = 10000us = 10ms
+    Read 1 MB sequentially from disk 从磁盘里面读出1MB	                    30,000,000 ns = 30000us = 30ms
+    Send packet CA->Netherlands->CA 一个包的一次远程访问	                150,000,000 ns = 150000us = 150ms
