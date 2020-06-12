@@ -1,5 +1,9 @@
 package com.java.z_exam.algorithm.c02_sort.sort_with_design;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @Author: Lei
  * @E-mail: 843291011@qq.com
@@ -25,6 +29,23 @@ class T00_Sort {
         Comparable t = arr[i];
         arr[i] = arr[j];
         arr[j] = t;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(6);
+        list.add(2);
+        list.add(1);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+
+        Collections.sort(list, (v1, v2) -> {
+            return v1 - v2;
+        });
+
+        System.out.println(list);
+
     }
 
 }
