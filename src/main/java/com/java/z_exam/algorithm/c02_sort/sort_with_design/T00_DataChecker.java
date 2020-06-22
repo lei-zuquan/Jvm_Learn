@@ -37,7 +37,7 @@ public class T00_DataChecker {
             //T02_Selection.sort(arr2);
             //T03_Insertion.sort(arr2);
             //T04_Shell.sort(arr2);
-            //T05_Merge.sort(arr2);
+            T05_Merge.sort(arr2);
             //T06_Quick.sort(arr2);
 
             for (int i = 0; i < arr2.length; i++) {

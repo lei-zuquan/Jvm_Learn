@@ -40,16 +40,12 @@ import java.util.Arrays;
 public class T05_Merge {
     public static void main(String[] args) {
         Integer[] arr = {1, 3, 5, 2, 4, 8, 9};
-        //Integer[] arr = {1, 2, -1, -2};
         sort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
-    private static Comparable[] assist;//归并所需要的辅助数组
-
     /* 对数组a中的元素进行排序 */
     public static void sort(Comparable[] a) {
-        assist = new Comparable[a.length];
         int lo = 0;
         int hi = a.length - 1;
         sort(a, lo, hi);
@@ -64,7 +60,7 @@ public class T05_Merge {
         int mid = left + (right - left) / 2;
         //对lo到mid之间的元素进行排序；
         // 排左边
-        sort(arr, 0, mid);
+        sort(arr, left, mid);
         //对mid+1到hi之间的元素进行排序
         // 排右边
         sort(arr, mid + 1, right);
@@ -75,37 +71,34 @@ public class T05_Merge {
 
     /*对数组中，从lo到mid为一组，从mid+1到hi为一组，对这两组数据进行归并 */
     public static void merge(Comparable[] arr, int leftPtr, int mid, int rightBound) {
-
-        //Comparable[] assist = new Comparable[rightBound - leftPtr + 1];
-        //int mid = rightPtr;
+        // 归并所需要的辅助数组
+        Comparable[] assist = new Comparable[rightBound - leftPtr + 1];
         int left = leftPtr;
         int right = mid + 1;
-        int finishIndex = leftPtr;
+        int finishIndex = 0;
 
-        //比较左边小组和右边小组中的元素大小，哪个小，就把哪个数据填充到assist数组中
+        // 比较左边小组和右边小组中的元素大小，哪个小，就把哪个数据填充到assist数组中
         while (left <= mid && right <= rightBound) {
 
-            if (less(arr[left], arr[right])) {
+            while (left <= mid && right <= rightBound && arr[left].compareTo(arr[right]) <= 0) {
                 assist[finishIndex++] = arr[left++];
-            } else {
+            }
+
+            while (left <= mid && right <= rightBound && arr[left].compareTo(arr[right]) > 0) {
                 assist[finishIndex++] = arr[right++];
             }
         }
 
-        //上面的循环结束后，如果退出循环的条件是p1<=mid，则证明左边小组中的数据已经归并完毕，如果退 出循环的条件是p2<=hi,则证明右边小组的数据已经填充完毕；
+        // 上面的循环结束后，如果退出循环的条件是p1<=mid，则证明左边小组中的数据已经归并完毕，如果退 出循环的条件是p2<=hi,则证明右边小组的数据已经填充完毕；
         // 所以需要把未填充完毕的数据继续填充到assist中,
         // 下面两个循环，只会执行其中的一个
         while (left <= mid) assist[finishIndex++] = arr[left++];
         while (right <= rightBound) assist[finishIndex++] = arr[right++];
 
-        //到现在为止，assist数组中，从lo到hi的元素是有序的，再把数据拷贝到a数组中对应的索引处
-        for (int i = leftPtr; i <= rightBound; i++) {
-            arr[i] = assist[i];
+        // 到现在为止，assist数组中，从lo到hi的元素是有序的，再把数据拷贝到a数组中对应的索引处
+        for (int i = 0; i < assist.length; i++) {
+            arr[i + leftPtr] = assist[i];
         }
-    }
-
-    private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
     }
 
 
