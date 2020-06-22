@@ -71,8 +71,8 @@ public class T_0008_QuickSort {
         //int[] arr = {7, 3, 2, 8, 1, 9, 5, 4, 6};
         //int[] arr = {7, 3, 2, 8, 1, 9, 5, 4, 6, 0}; // 越界
         //int[] arr = {7, 3, 2, 8, 1, 9, 5, 4, 6, 10}; // 越界
-        //int[] arr = {7, 3, 2, 6, 8, 1, 9, 5, 4, 6, 10, 6}; //
-        int[] arr = {7, 3, 2, 10, 8, 1, 9, 5, 4, 6}; //
+        int[] arr = {7, 3, 2, 6, 8, 1, 9, 5, 4, 6, 10, 6}; //
+        //int[] arr = {7, 3, 2, 10, 8, 1, 9, 5, 4, 6}; //
         //int[] arr = {4, 6};
 
         quickSort(arr, 0, arr.length - 1);
@@ -99,17 +99,11 @@ public class T_0008_QuickSort {
         int right = rightBound - 1;
 
         while (left <= right) {
-            while (left <= right && arr[left] <= pivot) left ++;
-            while (left <= right && arr[right] > pivot) right --;
-
-            //System.out.println("before swap: left ->" + left + " right->" + right);
+            while (left <= right && arr[left] <= pivot) left++;
+            while (left <= right && arr[right] > pivot) right--;
 
             // 当left、right没有相遇时，交换两个数在数组中的位置
             if (left < right) swap(arr, left, right);
-
-            //System.out.print("--");
-            //print(arr);
-            //System.out.println();
         }
 
         // 将分界点移动到需要的位置上
@@ -124,7 +118,7 @@ public class T_0008_QuickSort {
         arr[j] = temp;
     }
 
-    private static void print(int[] arr){
+    private static void print(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
