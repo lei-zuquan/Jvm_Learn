@@ -31,11 +31,8 @@ public class T02_Selection {
                 }
             }
 
-            //System.out.println("minPos: " + minPos);
             // 找到后，将两个值进行交换
             swap(arr, min, time);
-
-            //System.out.println("经过第" + i + "次循环之后，数组的内容：");
         }
     }
 

@@ -46,7 +46,7 @@ import java.util.Arrays;
     按照大O推导法则，保留函数中的最高阶项那么最终插入排序的时间复杂度为O(N^2).
 
  */
-public class T03_Insertion<T> {
+public class T03_Insertion {
 
     public static void main(String[] args) {
         Integer[] arr = {4, 3, 2, 1, 0};
