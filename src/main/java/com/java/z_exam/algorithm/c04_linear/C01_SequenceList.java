@@ -27,38 +27,43 @@ remove(int i):每一次删除，都需要把i位置后面的元素移动一次�
         2、通过自定义顺序链表，可以更好地满足我们自己业务的需要，执行性能会更好一些
 
  */
-//顺序表代码
+// 顺序表代码
 public class C01_SequenceList<T> implements Iterable<T> {
-    //存储元素的数组
+    // 存储元素的数组
     private T[] eles;
-    //记录当前顺序表中的元素个数
+    // 记录当前顺序表中的元素个数
     private int N;
-    //构造方法
+
+    // 构造方法
     public C01_SequenceList(int capacity){
         eles = (T[])new Object[capacity];
         N=0;
     }
-    //将一个线性表置为空表
+
+    // 将一个线性表置为空表
     public void clear(){
         N=0;
     }
-    //判断当前线性表是否为空表
+
+    // 判断当前线性表是否为空表
     public boolean isEmpty(){
         return N==0;
     }
 
-    //获取线性表的长度
+    // 获取线性表的长度
     public int length(){
         return N;
     }
-    //获取指定位置的元素
+
+    // 获取指定位置的元素
     public T get(int i){
         if (i<0 || i>=N){
             throw new RuntimeException("当前元素不存在！");
         }
         return eles[i];
     }
-    //向线型表中添加元素t
+
+    // 向线型表中添加元素t
     public void insert(T t){
         if (N==eles.length){
             resize(eles.length*2);
@@ -67,7 +72,7 @@ public class C01_SequenceList<T> implements Iterable<T> {
         eles[N++] =t;
     }
 
-    //在i元素处插入元素t
+    // 在i元素处插入元素t
     public void insert(int i,T t){
         if (i==eles.length){
             throw new RuntimeException("当前表已满");
@@ -75,44 +80,45 @@ public class C01_SequenceList<T> implements Iterable<T> {
             throw new RuntimeException("插入的位置不合法");
         }
 
-        //元素已经放满了数组，需要扩容
+        // 元素已经放满了数组，需要扩容
         if (N==eles.length){
             resize(eles.length*2);
         }
 
 
-        //把i位置空出来，i位置及其后面的元素依次向后移动一位
+        // 把i位置空出来，i位置及其后面的元素依次向后移动一位
         for (int index=N;index>i;index--){
             eles[index]=eles[index-1];
         }
-        //把t放到i位置处
+        // 把t放到i位置处
         eles[i]=t;
-        //元素数量+1
+        // 元素数量+1
         N++;
     }
 
-    //删除指定位置i处的元素，并返回该元素
+    // 删除指定位置i处的元素，并返回该元素
     public T remove(int i){
         if (i<0 || i>N-1){
             throw new RuntimeException("当前要删除的元素不存在");
         }
-        //记录i位置处的元素
+        // 记录i位置处的元素
         T result = eles[i];
-        //把i位置后面的元素都向前移动一位
+        // 把i位置后面的元素都向前移动一位
         for (int index=i;index<N-1;index++){
             eles[index]=eles[index+1];
         }
-        //当前元素数量-1
+        // 当前元素数量-1
         N--;
 
-        //当元素已经不足数组大小的1/4,则重置数组的大小
+        // 当元素已经不足数组大小的1/4,则重置数组的大小
         if (N>0 && N<eles.length/4){
             resize(eles.length/2);
         }
 
         return result;
     }
-    //查找t元素第一次出现的位置
+
+    // 查找t元素第一次出现的位置
     public int indexOf(T t){
         if(t==null){
             throw new RuntimeException("查找的元素不合法");
@@ -126,8 +132,7 @@ public class C01_SequenceList<T> implements Iterable<T> {
     }
 
 
-
-    //打印当前线性表的元素
+    // 打印当前线性表的元素
     public void showEles(){
         for (int i = 0; i < N; i++) {
             System.out.print(eles[i]+" ");
@@ -158,7 +163,7 @@ public class C01_SequenceList<T> implements Iterable<T> {
     }
 
 
-    //改变容量
+    // 改变容量
     private void resize(int newSize){
         //记录旧数组
         T[] temp = eles;
