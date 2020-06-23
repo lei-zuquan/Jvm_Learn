@@ -34,12 +34,12 @@ public class T_0009_CountSort {
     public static void main(String[] args) {
         //int[] arr = {2,4,2,3,7,1,1,0,0,5,6,9,8,5,7,4,0,9};
         int[] arr = {1,2,1,1,1};
-        int[] result = countSort(arr);
+        countSort(arr);
 
-        System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(arr));
     }
 
-    static int[] countSort(int[] arr){
+    static void countSort(int[] arr) {
         int[] result = new int[arr.length]; // 分配新数组，与原数组等长
 
         int tongLength = findMax(arr) + 1;
@@ -49,8 +49,8 @@ public class T_0009_CountSort {
             count[arr[i]]++;
         }
 
-        System.out.println("原数组未排序前:\t" + Arrays.toString(arr));
-        System.out.println("累加前，桶现状:\t" + Arrays.toString(count));
+        //System.out.println("原数组未排序前:\t" + Arrays.toString(arr));
+        //System.out.println("累加前，桶现状:\t" + Arrays.toString(count));
         /* 因为不稳定
         for (int i = 0, j=0; i < count.length; i++) {
             while (count[i]-- > 0) result[j++] = i;
@@ -59,26 +59,26 @@ public class T_0009_CountSort {
         // 因为上述方式不够稳定，升级为累加数组
         // 累加数组：记录着数据值应在数组中的最后位置
         for (int i = 1; i < count.length; i++) {
-            count[i] = count[i] + count[i-1];
+            count[i] = count[i] + count[i - 1];
         }
 
-        System.out.println("累加后，桶现状:\t" + Arrays.toString(count));
-        System.out.println("----------------------");
+        //System.out.println("累加后，桶现状:\t" + Arrays.toString(count));
+        //System.out.println("----------------------");
         // 然后从原数组中倒序遍历取出，从累加数组中数组中的最后位置减减
-        for (int i = arr.length-1; i >= 0; i--) {
+        for (int i = arr.length - 1; i >= 0; i--) {
 
             int tongIndex = arr[i]; // 查找数在桶中的位置
-            int curTongCnt = count[tongIndex]; // 桶中的元素个数；
             int pos = --count[tongIndex];
-            //int pos = --count[arr[i]];
             result[pos] = arr[i];
 
-            System.out.print("出数后，桶现状:\t" + Arrays.toString(count));
-            System.out.print("\t\t原数组：" + Arrays.toString(arr) + " 出数：" + arr[i]);
-            System.out.println("\tpos:" + pos + "\t结果出数:" + Arrays.toString(result));
+            //System.out.print("出数后，桶现状:\t" + Arrays.toString(count));
+            //System.out.print("\t\t原数组：" + Arrays.toString(arr) + " 出数：" + arr[i]);
+            //System.out.println("\tpos:" + pos + "\t结果出数:" + Arrays.toString(result));
         }
 
-        return result;
+        for (int i = 0; i < result.length; i++) {
+            arr[i] = result[i];
+        }
     }
 
     private static int findMax(int[] a) {
