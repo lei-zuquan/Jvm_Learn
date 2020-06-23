@@ -51,44 +51,7 @@ public class T_0010_RadixSort {
 
         System.out.println(Arrays.toString(result));
     }
-
-    public static int[] sort(int[] arr) {
-        int[] result = new int[arr.length];
-        int[] count = new int[10];
-
-        // 第一步，应该先求最高位数
-
-        for (int i = 0; i < 3; i++) {
-            int division = (int)Math.pow(10, i);
-            System.out.println(division);
-            for (int j = 0; j < arr.length; j++) {
-                int num = arr[j]/division % 10;
-
-                System.out.println(num + " ");
-
-                count[num]++;
-            }
-            System.out.println();
-            System.out.println(Arrays.toString(result));
-
-            for (int m = 1; m < count.length; m++) {
-                count[m] = count[m] + count[m-1];
-            }
-
-            System.out.println(Arrays.toString(result));
-
-            for (int n = arr.length - 1; n >= 0; n--) {
-                int num = arr[n] / division % 10;
-                result[--count[num]] = arr[n];
-            }
-
-            System.arraycopy(result, 0, arr, 0, arr.length);
-            Arrays.fill(count, 0);
-        }
-
-        return result;
-    }
-
+    
     public static int[] radixSort(int[] arr) {
         int[] result = new int[arr.length];
 

@@ -29,7 +29,7 @@ package com.java.z_exam.algorithm.c02_sort;
        O(log2N)
 
   稳定性：
-       稳定
+       不稳定
 
 
   快速排序核心思想：
