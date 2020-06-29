@@ -9,6 +9,12 @@ package com.java.z_exam.rpc.rpc10_kyro;
  * @Description:
  */
 
+import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryo.KryoException;
+import com.esotericsoftware.kryo.io.Input;
+import com.esotericsoftware.kryo.io.Output;
+import org.objenesis.strategy.StdInstantiatorStrategy;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,21 +22,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.objenesis.strategy.StdInstantiatorStrategy;
-
-
-import com.esotericsoftware.kryo.Kryo;
-import com.esotericsoftware.kryo.KryoException;
-import com.esotericsoftware.kryo.io.Input;
-import com.esotericsoftware.kryo.io.Output;
-
-public class KyroSerializable {
+public class KryoSerializable {
 
     public static void main(String[] args) throws IOException {
-        long start =  System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         setSerializableObject();
-        System.out.println("Kryo 序列化时间:" + (System.currentTimeMillis() - start) + " ms" );
-        start =  System.currentTimeMillis();
+        System.out.println("Kryo 序列化时间:" + (System.currentTimeMillis() - start) + " ms");
+        start = System.currentTimeMillis();
         getSerializableObject();
         System.out.println("Kryo 反序列化时间:" + (System.currentTimeMillis() - start) + " ms");
 
