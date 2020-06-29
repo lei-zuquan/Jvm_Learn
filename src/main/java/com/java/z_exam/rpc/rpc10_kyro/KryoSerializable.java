@@ -18,21 +18,11 @@ import org.objenesis.strategy.StdInstantiatorStrategy;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class KryoSerializable {
-
-    public static void main(String[] args) throws IOException {
-        long start = System.currentTimeMillis();
-        setSerializableObject();
-        System.out.println("Kryo 序列化时间:" + (System.currentTimeMillis() - start) + " ms");
-        start = System.currentTimeMillis();
-        getSerializableObject();
-        System.out.println("Kryo 反序列化时间:" + (System.currentTimeMillis() - start) + " ms");
-
-    }
+    
 
     public static void setSerializableObject() throws FileNotFoundException{
 
