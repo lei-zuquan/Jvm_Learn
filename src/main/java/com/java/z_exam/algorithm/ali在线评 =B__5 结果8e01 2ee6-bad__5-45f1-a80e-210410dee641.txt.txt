@@ -1,0 +1,154 @@
+1.数据模型和架构：（3选1）
+a）请画出你认为在你工作过的公司中，最合理的数据仓库的技术框架？需要详细告知离线和实时的技术框架；
+b）请具体描述下互联网数仓和传统数仓的相同和不同？重置的从各个角度分析。
+c）请具体描述下你认为做过最有印象或者最有代表性的数据项目、产品、架构，并介绍下为啥你认为该作品最有印象最具有代表性，你在这个过程中的作用和影响，这个项目给你带来哪些和其他项目产品不一样的内容？
+你的回答：
+    我选则题目2：请具体描述下互联网数仓和传统数仓的相同和不同？重置的从各个角度分析。
+        相同点：都是基于数据进行存储、建立元数据管理、有对应的sql分析、可视化工具；如果数据存储需要扩容，扩容成本大，计算分析偏向于单节点；
+        不同点：1.传统数仓数据存储在MySQL等关系型数据库中，严格遵循数据库的三大范式进行设计，同时对服务器硬件要求高；
+               2.而互联网数仓是建立在分布式Hadoop/Hive/HBase之上，通过HiveSQL/Spark/Impala/Flink进行加工分析；因为是分布式冗余存储、分布式迭代计算，
+               整体的数据量、计算能力、可靠性比传统数仓提升很多很多，同时对服务器要求没有传统数仓高；可以使用较为廉价的服务器组成集群，整体的数据容量、计算能力可以
+               依据业务增长进行扩容；
+               3.互联网数仓没有要求数据库的三大范式，数据可冗余存储、或宽表；另外互联网数据仓库会进行数据分层、建立不同的事实表、明细表进行组织；
+               4.未来互联网数仓会越来越受欢迎，使用也会越来越广；同时传统数仓也会一直存在下去；
+               5.互联网数仓因为涉及的组件多，对技术要求较高，往往需要多人团队协作；而传统数据仓库，相对对技术的要求门槛没有那么高。
+         
+
+2.数据产品
+背景：以微信运动(微信运动是中国社交APP中对自己和朋友的运行信息进行对比的功能，促进大家多运动)为例，假设有两个源头表，
+表1：用户和用户运动步数；表名为 user_moving_steps (user_id,user_steps)
+表2：用户和朋友的关系；user_friends_relation (user_id,friend_id)
+需求上希望生成以下需求：
+1.用户的当前运动排名；
+2.用户的朋友运动排名；
+3.用户的详情页里面，我占领多少个人的封面；
+希望答案结果是这样的：
+如：离线表结构为：tableA（字段1，字段2，字段3...),tableB（字段1，字段2，字段3...)...
+需求1：基于TableA的query sql可以得出，需求2，需求3类似；
+你的回答：
+    离线表结构为: user_moving_steps_with_friend (user_id, friend_id, user_steps)
+
+    基于：user_moving_steps_with_friend：
+        SET @crank=0;
+        SELECT @crank :=  @crank + 1 AS rank FROM
+        user_moving_steps_with_friend GROUP BY user_id  ORDER BY user_steps DESC WHERE user_id = "0001";
+        完成1.用户的当前运动排名；
+
+    基于：user_moving_steps_with_friend：
+        SET @crank=0;
+        SELECT friend_id, @crank :=  @crank + 1 AS rank FROM
+        user_moving_steps_with_friend GROUP BY user_id  ORDER BY user_steps DESC;
+        完成2.用户的朋友运动排名；
+
+    基于：user_moving_steps_with_friend：
+        待解决
+
+3.数据技能： 
+a。（SQL题）用一条SQL语句查询出每门课都大于80分的学生姓名
+名字 课程 分数
+张三 语文 81
+张三 数学 75
+李四 语文 76
+李四 数学 90
+王五 语文 81
+王五 数学 100
+王五 英语 90
+你的回答：
+    思路，先按学生名字分组，再取最小分数进行过滤大于80分的记录，然后对名字去重
+    假设表结构：student_score (name, item, score)
+    SELECT DISTINCT(name) FROM student_score group by name HAVING min(score）> 80）;
+
+
+b. (SQL题)有一个竖表，记录学生成绩，3个字段，学生学号、学科和成绩，假设每个学生有3们学科，希望你能将其打横，变成学号加几个学科的成绩，有哪些方法可以实现？
+以张三(张三学号为1001)为例：
+原表记录：                      期望变成如下(每个学号1条记录)：
+学号        学科    成绩            学号    语文成绩    数学成绩    英语成绩
+1001        语文    100             1001    100         95          90
+1001        数学    95
+1001        英语    90
+你的回答：
+    假设表结构：student_score（sno, subject, score）, 则查询语句如下：
+    SELECT sno as 学号,
+        max(case subject when '语文' then result else 0 end) '语文成绩',
+        max(case subject when '数学' then result else 0 end) '数学成绩',
+        max(case subject when '英语' then result else 0 end) '英语成绩'
+    FROM student_score group by name;
+
+
+c. (代码题)翻转字符串里的每个单词
+Given s = "the sky is blue",
+return "eht yks si eulb".
+函数名：reverseString
+参数：原字符串
+返回：新字符串
+要求：可以不要求能一次性编译通过，语言任选。
+你的回答：
+    我是使用IDEA工具编写JAVA，具体实现如下：
+    /*
+        Given s = "the sky is blue",
+        return "eht yks si eulb".
+        函数名：reverseString
+        参数：原字符串
+        返回：新字符串
+        要求：可以不要求能一次性编译通过，语言任选。
+     */
+
+    // 为了减少时间复杂度，不使用从头到尾遍历的方式；时间复杂度 O(logN)
+    public class ReverseString {
+        public static void main(String[] args) {
+            String output = SplitLine("the sky is blue");
+
+            System.out.println(output);
+        }
+
+        // 进行分词，这里采用简单的空格分词
+        private static String SplitLine(String line) {
+            String[] words = line.split(" ");
+
+            StringBuilder sb = new StringBuilder();
+            for (String word : words) {
+                sb.append(reverse(word) + " ");
+            }
+
+            String res = sb.toString();
+            String substring = res.substring(0, res.length() - 1);
+            return substring;
+        }
+
+        // 为了减少时间复杂度，不使用从头到尾遍历的方式；时间复杂度 O(logN)
+        private static String reverse(String inputData) {
+            int start = 0;
+            int end  = inputData.length() - 1;
+            char[] chars = inputData.toCharArray();
+
+            while (start < end) {
+                swap(chars, start++, end--);
+            }
+
+            return new String(chars);
+        }
+
+        // 数组元素交换
+        private static void swap(char[] chars, int i, int j) {
+            char temp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = temp;
+        }
+    }
+
+
+
+4.  技术调优题：
+在Hive或者ODPS中，如果A join B出现倾斜，你的优化思路一般是怎样的？
+你的回答：
+    优化思路大致分为两大步：一是定位倾斜数问题；二是针对倾斜问题进行优化调整；三是在测试环境下测试验证
+        定位问题：以SPARK分析为例，可以通过SPARK ui可以查看到哪个job/stage执行慢及耗时，如果继续点击进去可以看到某些task的数据量；
+            如果某个task数据量超大且整体执行时间过长，则存在较为严重的数据倾斜问题；
+
+        解决思路：优先级从1~5逐条考虑、使用，即前面的解决策略会更好
+            1.聚合源数据以及过滤导致倾斜的key（前提是过滤的数据是无用数据）
+            2.提高shuffle操作reduce并行度（相当于增加干活的人）
+            3.使用随机key实现双重聚合（相当于将倾斜的key打散，避免热点）
+            4.将reduce join转换为map join （先在shuffle前进行预聚合，减少进入reduce端的数据量）
+            5.使用随机数以及扩容表进行join （整体打散，使用数据均匀，最后再进行聚合）
+
