@@ -27,15 +27,15 @@ import java.util.concurrent.TimeUnit;
  *
  *
  */
-public class HeapTest {
+public class T01_HeapTest {
 
-    byte[] a = new byte[1024*100];  // 100KB
+    byte[] a = new byte[1024 * 100];  // 100KB
 
     public static void main(String[] args) throws InterruptedException {
-        ArrayList<HeapTest> heapTests = new ArrayList<>();
+        ArrayList<T01_HeapTest> heapTests = new ArrayList<>();
 
-        while (true){
-            heapTests.add(new HeapTest());
+        while (true) {
+            heapTests.add(new T01_HeapTest());
             TimeUnit.MILLISECONDS.sleep(10);
         }
     }

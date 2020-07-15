@@ -8,12 +8,12 @@ package com.java.z_exam.jvm_gc;
  * @Modified By:
  * @Description:
  */
-public class TestJvm {
+public class T04_MyMath {
     public static void main(String[] args) {
         method01(); // java.lang.StackOverflowError
     }
 
-    public static void method01(){
+    public static void method01() {
         int[] arr = new int[1000000000];
         method01();
     }

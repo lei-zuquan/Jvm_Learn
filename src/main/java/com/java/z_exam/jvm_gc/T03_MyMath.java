@@ -8,20 +8,20 @@ package com.java.z_exam.jvm_gc;
  * @Modified By:
  * @Description:
  */
-public class MyMath {
+public class T03_MyMath {
 
     public static int initData = 666;
     public static User user = new User();
 
-    public int compute(){ // 一个方法对应一块栈帧内存区域
+    public int compute() { // 一个方法对应一块栈帧内存区域
         int a = 1;
         int b = 2;
-        int c = (a+b) * 10;
+        int c = (a + b) * 10;
         return c;
     }
 
     public static void main(String[] args) {
-        MyMath math = new MyMath();
+        T03_MyMath math = new T03_MyMath();
         math.compute();
     }
 }

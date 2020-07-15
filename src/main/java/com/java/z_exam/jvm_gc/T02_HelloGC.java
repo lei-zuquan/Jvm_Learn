@@ -12,7 +12,7 @@ package com.java.z_exam.jvm_gc;
 import java.util.LinkedList;
 import java.util.List;
 
-public class HelloGC {
+public class T02_HelloGC {
     public static void main(String[] args) {
         System.out.println("HelloGC!");
         List list = new LinkedList();
@@ -22,3 +22,14 @@ public class HelloGC {
         }
     }
 }
+
+/*
+1.  java -XX:+PrintCommandLineFlags HelloGC
+        -XX:+PrintCommandLineFlags
+
+2.  java -Xmn10M -Xms40M -Xmx60M -XX:+PrintCommandLineFlags -XX:+PrintGC HelloGC PrintGCDetails PrintGCTimeStamps PrintGCCauses
+        -Xmn10M -Xms40M -Xmx60M -XX:+PrintCommandLineFlags -XX:+PrintGC
+3.  java -XX:+UseConcMarkSweepGC -XX:+PrintCommandLineFlags HelloGC
+         -XX:+UseConcMarkSweepGC -XX:+PrintCommandLineFlags
+
+ */
