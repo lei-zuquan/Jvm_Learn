@@ -29,7 +29,7 @@ public class C_10_SingletonDemo {
     /**
      * DCL(双端检锁) 机制不一定线程安全,原因是有指令重排的存在,加入volatile可以禁止指令重排
      *
-     *   原因在于某一个线程在执行到第一次检测,读取到的instance不为null时,instance的引用对象可能没有完成初始化.
+     * 原因在于某一个线程在执行到第一次检测,读取到的instance不为null时,instance的引用对象可能没有完成初始化.
      *
      * instance=new SingletonDem(); 可以分为以下步骤(伪代码)
      *

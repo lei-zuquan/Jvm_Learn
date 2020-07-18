@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *                      Unsafe类中的compareAndSwapInt，是一个本地方法，该方法的实现位于unsafe.cpp中
  *
  *                      1.Unsafe
- *                          是CAS核心类，由于Java方法无法直接访问底层系统，需要能过本地（native）方法来访问，Unsage相当于一个后门，基于该类
+ *                          是CAS核心类，由于Java方法无法直接访问底层系统，需要能过本地（native）方法来访问，Unsafe相当于一个后门，基于该类
  *                          可以直接操作特定内存的数据。Unsafe类存在于sun.misc包中，其内部方法操作可以像C的指针一样直接操作内存，因为Java中
  *                          CAS操作的执行依赖于Unsafe类的方法。
  *                          注意Unsafe类中的所有方法都是native修饰的，也就是说Unsafe类中的方法都直接调用系统底层资源执行相应任务
