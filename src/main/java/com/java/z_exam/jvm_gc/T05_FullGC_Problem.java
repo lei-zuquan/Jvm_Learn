@@ -21,6 +21,9 @@ import java.util.concurrent.TimeUnit;
  * 从数据库中读取信用数据，套用模型，并把结果进行记录和传输
  */
 
+
+// -Xms200M -Xmx200M -XX:+PrintGC
+// java -Xms200M -Xmx200M -XX:+PrintGC com.java.z_exam.jvm_gc.T05_FullGC_Problem
 public class T05_FullGC_Problem {
 
     private static class CardInfo {
