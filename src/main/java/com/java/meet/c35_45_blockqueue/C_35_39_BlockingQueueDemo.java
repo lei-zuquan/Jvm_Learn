@@ -80,6 +80,11 @@ import java.util.concurrent.TimeUnit;
 public class C_35_39_BlockingQueueDemo {
 
     public static void main(String[] args) throws InterruptedException {
+
+        waiting();
+    }
+
+    private static void timeout() throws InterruptedException {
         // 第四种：超时型
         List list = new ArrayList();
         BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(3);
@@ -87,7 +92,6 @@ public class C_35_39_BlockingQueueDemo {
         System.out.println(blockingQueue.offer("b",2L, TimeUnit.SECONDS));
         System.out.println(blockingQueue.offer("c",2L, TimeUnit.SECONDS));
         System.out.println(blockingQueue.offer("d",2L, TimeUnit.SECONDS));
-
     }
 
     private static void waiting() throws InterruptedException {
@@ -98,7 +102,7 @@ public class C_35_39_BlockingQueueDemo {
         blockingQueue.put("b");
         blockingQueue.put("c");
         System.out.println("=========================");
-        //blockingQueue.put("x");
+        blockingQueue.put("x");
 
         blockingQueue.take();
         blockingQueue.take();
