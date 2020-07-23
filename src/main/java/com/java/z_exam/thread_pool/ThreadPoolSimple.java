@@ -31,11 +31,17 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadPoolSimple {
     public static void main(String[] args) throws InterruptedException {
+        // Executors.newCachedThreadPool(); // 可缓存线程池，最大线程数为Integer.MAX_VALUE, 容易OOM
+        // Executors.newScheduledThreadPool(10); // 周期性执行任务的线程池，最大线程数为：Integer.MAX_VALUE，容易OOM
+        // Executors.newSingleThreadExecutor(); // 单一线程池，等待队列为Integer.MAX_VALUE，容易OOM
+        // Executors.newFixedThreadPool(10); // 定长线程池，等待队列为Integer.MAX_VALUE，容易OOM
+
         // corePoolSize 核心线程数，可长期驻留的线程数量
         // maximumPoolSize, 顾名思义，就是线程不够时能够创建的最大线程数。
         // keepAliveTime 和 TimeUnit，这两个参数指定了额外的线程能够闲置多久，显然有些线程池不需要它。
         // 工作队列，必须是BlockingQueue
         // 线程池pool的阻塞队列是ArrayBlockingQueue，ArrayBlockingQueue是一个有界的阻塞队列，ArrayBlockingQueue的容量为1。这也意味着线程池的阻塞队列只能有一个线程池阻塞等待。
+
 
         ThreadPoolExecutor executor = new ThreadPoolExecutor(
                 3,
@@ -47,7 +53,7 @@ public class ThreadPoolSimple {
                 new LinkedBlockingQueue<>(20),
                 new ThreadPoolExecutor.CallerRunsPolicy());
 
-        // ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常。
+        // ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出异常。
         // ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常。
         // ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
         // ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务

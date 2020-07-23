@@ -59,6 +59,7 @@ import java.util.concurrent.TimeUnit;
  * 重点：LinkedBlockingQueue：由链表结构组成的有界（但大小默认值为Integer.MAX_VALUE）阻塞队列，慎用。默认大小太大了
  *      PriorityBlockingQueue：支持优先级排序的无界阻塞队列。
  *      DelayQueue：使用优先级队列实现的延迟无界阻塞队列
+ *      DelayedWorkQueue:保证添加到队列中的任务，会按照任务的延时时间进行排序，延时时间少的任务首先被获取。
  * 重点：SynchronousQueue：不存储元素的阻塞队列，也即单个元素的队列
  *      LinkedTransferQueue：由链表结构组成的无界阻塞队列
  *      LinkedBlockingDeque：由链表结构组成的双向阻塞队列（双向）
