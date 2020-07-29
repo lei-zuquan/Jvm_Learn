@@ -84,7 +84,7 @@ import java.lang.reflect.Modifier;
     @Test
     public void test1() throws Exception{
         // 1、获取某个类型的Class对象
-        Class<?> clazz = Class.forName("com.lei.java.Student");
+        Class<?> clazz = Class.forName("com.jvm.java.Student");
         // 2、获取包信息
         Package pk = clazz.getPackage();
         System.out.println(pk.getName());

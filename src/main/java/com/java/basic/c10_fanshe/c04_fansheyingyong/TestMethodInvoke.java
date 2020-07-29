@@ -33,7 +33,7 @@ public class TestMethodInvoke {
     @Test
     public void test2() throws Exception {
         // 1、获取Class对象
-        Class<?> clazz = Class.forName("com.lei.java.Student");
+        Class<?> clazz = Class.forName("com.jvm.java.Student");
 
         /**
          * 调用Student类的public static void test(int a) 方法
@@ -48,7 +48,7 @@ public class TestMethodInvoke {
     @Test
     public void test1() throws Exception {
         // 1、获取Class对象
-        Class<?> clazz = Class.forName("com.lei.java.Student");
+        Class<?> clazz = Class.forName("com.jvm.java.Student");
 
         // 2、获取Method对象
         // method代表 public void setName(String name) {...}
@@ -62,7 +62,7 @@ public class TestMethodInvoke {
         System.out.println(invoke); // 如果method代表的方法没有返回值，那么会返回null
 
         Class<?> impl = null;
-        impl = Class.forName("com.lei.java.Student", true, Thread.currentThread().getContextClassLoader());
+        impl = Class.forName("com.jvm.java.Student", true, Thread.currentThread().getContextClassLoader());
         Object o = impl.newInstance();
         // 4、调用方法
         Object invoke1 = method.invoke(stu, "李四222");

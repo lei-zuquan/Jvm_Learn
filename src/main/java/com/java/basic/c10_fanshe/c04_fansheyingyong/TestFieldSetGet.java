@@ -33,7 +33,7 @@ public class TestFieldSetGet {
     @Test
     public void test1() throws Exception {
         // 1、获取Class对象
-        Class<?> clazz = Class.forName("com.lei.java.Student");
+        Class<?> clazz = Class.forName("com.jvm.java.Student");
         // 2、获取Field属性对象
         // 例如：这里要为name属性赋值
         Field nameField = clazz.getDeclaredField("name");

@@ -42,7 +42,7 @@ public class TestNewInstance {
     @Test
     public void test2() throws Exception{
         // 1、获取Class对象
-        Class<?> clazz = Class.forName("com.lei.java.Student");
+        Class<?> clazz = Class.forName("com.jvm.java.Student");
 
         // 2、获取构造器对象
         Constructor<?> constructor = clazz.getDeclaredConstructor(String.class);
@@ -57,7 +57,7 @@ public class TestNewInstance {
     @Test
     public void test1() throws Exception{
         // 1、获取Class对象
-        Class<?> clazz = Class.forName("com.lei.java.Student");
+        Class<?> clazz = Class.forName("com.jvm.java.Student");
 
         // 2、创建Student的对象
         // clazz代表类型，虽然它本身是Class的对象，但是它是代表类型

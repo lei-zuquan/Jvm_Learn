@@ -71,7 +71,7 @@ public class TestClassLoader {
     @Test
     public void test3() throws ClassNotFoundException {
         // 加载com.lei.ext.demo.Student
-        Class<?> c = Class.forName("com.lei.ext.demo.Student");
+        Class<?> c = Class.forName("com.jvm.ext.demo.Student");
 
         // 获取类加载器对象
         ClassLoader loader = c.getClassLoader();
