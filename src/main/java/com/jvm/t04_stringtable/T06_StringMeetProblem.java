@@ -1,4 +1,4 @@
-package com.jvm.t03_metaspace;
+package com.jvm.t04_stringtable;
 
 /**
  * @Author: Lei
