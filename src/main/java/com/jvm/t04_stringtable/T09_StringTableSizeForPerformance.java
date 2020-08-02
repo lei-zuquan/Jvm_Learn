@@ -17,7 +17,8 @@ import java.io.InputStreamReader;
 /**
  * 演示串池大小对性能的影响
  * -Xms500m -Xmx500m -XX:+PrintStringTableStatistics -XX:StringTableSize=1009
- * <p>
+ * -Xms500m -Xmx500m -XX:+PrintStringTableStatistics -XX:StringTableSize=100009
+ *
  * 字符串常量池默认桶数组大小为：60013，对字符串常量池调优主要是调节桶数据大小；如果字符串数量较多，则需要将此调大些，以减少查询复杂度（hash碰撞机率）
  */
 
