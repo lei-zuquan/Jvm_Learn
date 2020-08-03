@@ -16,13 +16,13 @@ import java.lang.reflect.Field;
 
 /**
  * 直接内存分配的底层原理：Unsafe
- * <p>
+ *
  * 虚引用关联的对象被回收了，就会触发虚引用对象的clean方法，续而调用Unsafe的freeMemory() 方法
- * <p>
+ *
  * 6.3 分配和回收原理
- * <p>
+ *
  * 使用了UnSafe对象完成直接内存的分配回收，并且回收需要主动调用freeMemory方法
- * <p>
+ *
  * ByteBuffer的实现类内部，使用了Cleaner（虚引用）来监测ByteBuffer对象，一旦ByteBuffer对象被垃圾回收，
  * 那么就会由ReferenceHandler线程通过Cleaner的clean方法调用freeMemory来释放直接内存
  */
