@@ -129,7 +129,7 @@ class MyData { // MyData.java ====> MyData.class ===> 字节码
 public class C_02_09_VolatileDemo {
 
     public static void main(String[] args) { // main是一切方法的运行入口
-        //seeOkByVolatile();
+        seeOkByVolatile();
         MyData myData = new MyData();
 
         for (int i = 0; i < 20; i++) {

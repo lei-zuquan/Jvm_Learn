@@ -1,6 +1,6 @@
 package com.java.z_exam.algorithm.c04_linear;
 
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * @Author: Lei
