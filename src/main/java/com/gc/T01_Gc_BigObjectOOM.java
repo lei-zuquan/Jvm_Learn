@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 // GC 分析 大对象OOM
-public class T01_Gc_Demo01 {
+public class T01_Gc_BigObjectOOM {
     private static final int _512KB = 512 * 1024;
     private static final int _1MB = 1024 * 1024;
     private static final int _6MB = 6 * 1024 * 1024;
