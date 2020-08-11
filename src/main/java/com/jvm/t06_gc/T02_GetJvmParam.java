@@ -1,4 +1,4 @@
-package com.gc;
+package com.jvm.t06_gc;
 
 /**
  * @Author: Lei
