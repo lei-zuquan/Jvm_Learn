@@ -10,7 +10,7 @@ package com.jvm.t07_bytecode;
  */
 
 // 从字节码角度分析：finally 出现了 return
-public class T19_BateAnalyseFinallyReturn3 {
+public class T19_ByteAnalyseFinallyReturn3 {
     public static void main(String[] args) {
         int result = test();
         System.out.println(result);
