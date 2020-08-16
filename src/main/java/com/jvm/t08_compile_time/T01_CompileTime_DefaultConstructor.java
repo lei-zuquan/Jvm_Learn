@@ -9,7 +9,7 @@ package com.jvm.t08_compile_time;
  * @Description:
  */
 
-// 编译期处理——默认构造器
+// 编译期处理(语法糖)——默认构造器
 public class T01_CompileTime_DefaultConstructor {
 
 }
