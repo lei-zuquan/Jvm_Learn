@@ -11,7 +11,7 @@ import java.io.IOException;
  * @Description:
  */
 
-// 解析的含义 及 说明
+// 类加载分析 - 解析的含义 及 说明
 public class T03_ClassLoad_Resolved {
     public static void main(String[] args) throws ClassNotFoundException, IOException {
         ClassLoader classLoader = T03_ClassLoad_Resolved.class.getClassLoader();
