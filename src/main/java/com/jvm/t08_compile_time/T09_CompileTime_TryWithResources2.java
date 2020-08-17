@@ -37,7 +37,7 @@ public class T09_CompileTime_TryWithResources2 {
                             is.close();
                         } catch (Throwable e2) {
                             // 如果 close 出现异常，作为被压制异常添加; 这样异常不会丢
-                            t.addSuppressed(e2);
+                            t.addSuppressed(e2); // 一般开发人员不会考虑这么全面的异常捕获
                         }
                     } else {
                         // 如果我们代码没有异常，close 出现的异常就是最后的 catch 块中的 e
