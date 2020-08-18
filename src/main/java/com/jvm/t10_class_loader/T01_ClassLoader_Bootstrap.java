@@ -13,15 +13,11 @@ package com.jvm.t10_class_loader;
 public class T01_ClassLoader_Bootstrap {
     public static void main(String[] args) throws ClassNotFoundException {
         // forName 可以完成类的加载，也可以类的链接、初始化操作
-        Class<?> aClass = Class.forName("com.jvm.t10_class_loader.F");
+        Class<?> aClass = Class.forName("com.jvm.t10_class_loader.T01_F");
         System.out.println(aClass.getClassLoader());
     }
 }
 
-class F {
-    static {
-        System.out.println("bootstrap F init");
-    }
-}
+
 
 
