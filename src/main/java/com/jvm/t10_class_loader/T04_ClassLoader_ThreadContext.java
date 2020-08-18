@@ -16,7 +16,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @Description:
  */
 
-// 线程上下文类加载器
+// 类加载器 —— 线程上下文类加载器
 public class T04_ClassLoader_ThreadContext {
     // 继续看 loadInitialDrivers()  方法：JDK 在某些情况下需要打破双亲委派模式
     private static void loadInitialDriver() {
