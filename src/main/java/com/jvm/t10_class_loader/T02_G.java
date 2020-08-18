@@ -12,7 +12,7 @@ public class T02_G {
     static {
         // 1、打包：jar -cvf my.jar com\jvm\t10_class_loader\T02_G.class
         // 2、放入：jdk\jre\lib\ext\  下
-        System.out.println("ext G init");
-        //System.out.println("classpath G init");
+        //System.out.println("ext G init");
+        System.out.println("classpath G init");
     }
 }

@@ -18,7 +18,7 @@ package com.jvm.t10_class_loader;
 public class T02_ClassLoader_Extension {
     public static void main(String[] args) throws ClassNotFoundException {
         // forName 可以完成类的加载，也可以类的链接、初始化操作
-        Class<?> aClass = Class.forName("com.jvm.t10_class_loader.G");
+        Class<?> aClass = Class.forName("com.jvm.t10_class_loader.T02_G");
         System.out.println(aClass.getClassLoader());
     }
 }
