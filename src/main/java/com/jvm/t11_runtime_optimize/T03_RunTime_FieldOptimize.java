@@ -37,7 +37,7 @@ public class T03_RunTime_FieldOptimize {
     }
 
     @Benchmark
-    public void test1() {
+    public void test1() { // 得分最低
         for (int i = 0; i < elements.length; i++) {
             doSum(elements[i]);
         }
@@ -60,7 +60,7 @@ public class T03_RunTime_FieldOptimize {
 
     static int sum = 0;
 
-    @CompilerControl(CompilerControl.Mode.INLINE)  // 控制调用方法时是不是要进行方法内联；允许内联
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)  // 控制调用方法时是不是要进行方法内联；
     static void doSum(int x) { sum += x;}
 
     public static void main(String[] args) throws RunnerException {
@@ -71,5 +71,4 @@ public class T03_RunTime_FieldOptimize {
 
         new Runner(opt).run();
     }
-
 }
