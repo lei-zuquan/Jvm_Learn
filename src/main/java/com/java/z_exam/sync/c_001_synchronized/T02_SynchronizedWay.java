@@ -14,8 +14,13 @@ package com.java.z_exam.sync.c_001_synchronized;
  * 对某个对象加锁
  */
 
+/*
+   我们来谈一下synchronized的一些特性。如果说你每次都定义一个锁的对象 Object o，把它new出来，那加锁的时候太麻烦，
+   每次都要new一个新的对象出来。所以呢，最简单的方式就是synchronized(this)，锁定当前对象就行。
+ */
 
-public class T02 {
+// Synchronized 修饰同步代码块
+public class T02_SynchronizedWay {
 
     private int count = 10;
 
@@ -28,9 +33,3 @@ public class T02 {
 
 }
 
-/*
-
-我们来谈一下synchronized的一些特性。如果说你每次都定义一个锁的对象Object o，把它new出来，那加锁的时候太麻烦，
-每次都要new一个新的对象出来。所以呢，最简单的方式就是synchronized(this)，锁定当前对象就行。
-
- */

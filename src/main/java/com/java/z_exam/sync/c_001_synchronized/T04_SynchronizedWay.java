@@ -15,7 +15,7 @@ package com.java.z_exam.sync.c_001_synchronized;
  */
 
 
-public class T04 {
+public class T04_SynchronizedWay {
 
     private static int count = 10;
 
@@ -25,7 +25,7 @@ public class T04 {
     }
 
     public static void mm() {
-        synchronized (T04.class) { // 考虑一下这里写synchronized(this)是否可以？
+        synchronized (T04_SynchronizedWay.class) { // 考虑一下这里写synchronized(this)是否可以？
             count--;
         }
     }

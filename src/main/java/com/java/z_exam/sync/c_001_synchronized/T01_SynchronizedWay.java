@@ -8,18 +8,19 @@ package com.java.z_exam.sync.c_001_synchronized;
  * @Modified By:
  * @Description:
  */
-public class T01 {
+
+// Synchronized 修饰同步代码块
+public class T01_SynchronizedWay {
 
     private int count = 10;
     private Object o = new Object();
 
     public void m () {
-        synchronized (o) { //任何线程要执行下面的代码，必须先拿到o的锁
+        synchronized (o) { // 任何线程要执行下面的代码，必须先拿到 o对象的锁
             count--;
             System.out.println(Thread.currentThread().getName() + " count = " + count);
         }
     }
-
 }
 
 /*
@@ -33,5 +34,5 @@ public class T01 {
 
 实质上，这把锁并不是对数字进行锁定的，你可以任意指定，想锁谁就锁谁。
 
-我第一个程序是这么写的，如果说你想上了把锁之后才能对count进行减减访问，你可以new一个Object，所以这里锁定就是0，当我拿到这把锁的时候才能执行这段代码。
+我第一个程序是这么写的，如果说你想上了把锁之后才能对count进行减减访问，你可以new一个Object，所以这里锁定就是o，当我拿到这把锁的时候才能执行这段代码。
  */
