@@ -30,6 +30,5 @@ public class T02_Synchronized_Way2 {
             System.out.println(Thread.currentThread().getName() + " count = " + count);
         }
     }
-
 }
 
