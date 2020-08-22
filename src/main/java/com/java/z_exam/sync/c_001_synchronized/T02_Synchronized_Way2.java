@@ -19,13 +19,13 @@ package com.java.z_exam.sync.c_001_synchronized;
    每次都要new一个新的对象出来。所以呢，最简单的方式就是synchronized(this)，锁定当前对象就行。
  */
 
-// Synchronized 修饰同步代码块
-public class T02_SynchronizedWay {
+// Synchronized 修饰同步代码块(优化版)
+public class T02_Synchronized_Way2 {
 
     private int count = 10;
 
     public void m() {
-        synchronized (this) { // 任何线程要执行下面的代码，必须先拿到this的锁
+        synchronized (this) { // 任何线程要执行下面的代码，必须先拿到this的锁；避免每次都要 new一个新的对象出来
             count--;
             System.out.println(Thread.currentThread().getName() + " count = " + count);
         }
