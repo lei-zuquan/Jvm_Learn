@@ -31,11 +31,11 @@ import java.util.Random;
 public class T_0006_ShellSort {
     public static void main(String[] args) {
         int[] a = {9, 6, 11, 3, 5, 12, 8, 7, 10, 15, 14, 4, 1, 13, 2};
-        //sort(a);
-        /*shellSort2(a);
-        print(a);*/
+        //shellSort(a);
+        shellSort(a);
+        print(a);
 
-        compareRunTime();
+        //compareRunTime();
     }
 
     public static void compareRunTime() {

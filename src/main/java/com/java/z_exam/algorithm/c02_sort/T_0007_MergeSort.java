@@ -45,7 +45,7 @@ package com.java.z_exam.algorithm.c02_sort;
  */
 public class T_0007_MergeSort {
     public static void main(String[] args) {
-        int[] arr = {5,3,6,8,1,7,9,4,2};
+        int[] arr = {5, 3, 6, 8, 1, 7, 9, 4, 2};
 
         mergeSort(arr, 0, arr.length - 1);
 
@@ -53,7 +53,7 @@ public class T_0007_MergeSort {
     }
 
     // 递归写法
-    public static void mergeSort(int[] arr, int left, int right){
+    public static void mergeSort(int[] arr, int left, int right) {
         if (left == right) return;
 
         // 分成两半
@@ -61,7 +61,7 @@ public class T_0007_MergeSort {
         // 左边排序
         mergeSort(arr, left, mid);
         // 右边排序
-        mergeSort(arr, mid+1, right);
+        mergeSort(arr, mid + 1, right);
 
         // 最后将左右两边合并
         merge(arr, left, mid + 1, right);
