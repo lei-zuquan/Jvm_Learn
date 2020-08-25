@@ -3,8 +3,7 @@ package com.java.z_exam.algorithm.c02_sort;
 import java.util.Arrays;
 
 /**
- * @Author: Lei
- * @E-mail: 843291011@qq.com
+ * @Author:
  * @Date: Created in 10:04 下午 2020/5/18
  * @Version: 1.0
  * @Modified By:

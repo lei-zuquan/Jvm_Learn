@@ -1,8 +1,7 @@
 package com.java.z_exam.algorithm.c02_sort;
 
 /**
- * @Author: Lei
- * @E-mail: 843291011@qq.com
+ * @Author:
  * @Date: Created in 11:06 下午 2020/5/14
  * @Version: 1.0
  * @Modified By:

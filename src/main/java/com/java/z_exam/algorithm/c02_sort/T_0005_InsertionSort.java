@@ -1,8 +1,7 @@
 package com.java.z_exam.algorithm.c02_sort;
 
 /**
- * @Author: Lei
- * @E-mail: 843291011@qq.com
+ * @Author:
  * @Date: Created in 4:14 下午 2020/5/5
  * @Version: 1.0
  * @Modified By:
@@ -47,7 +46,6 @@ public class T_0005_InsertionSort {
         print(a);
     }
 
-
     /*
         插入排序设计思想：
             1、对前面有序的数组进行插入式，即插入到合适的位置
@@ -66,7 +64,7 @@ public class T_0005_InsertionSort {
                 if (arr[i] < arr[i - 1]) {
                     swap(arr, i, i - 1);
                 } else {
-                    break;
+                    break; // 优化点，即已经找到了当前数合适的位置，内循环不再继续
                 }
             }
 
