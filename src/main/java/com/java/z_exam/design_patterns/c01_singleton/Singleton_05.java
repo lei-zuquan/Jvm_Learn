@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
  * 也称懒汉式
  * 虽然达到了按需初始化的目的，但却带来线程不安全的问题
  * 可以通过 synchronized 解决，但也带来效率下降
+ * 通过减少 synchronized 同步锁粒度，发现多线程不安全问题依然存在
  */
 public class Singleton_05 {
     private static Singleton_05 INSTANCE;

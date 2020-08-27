@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * lazy loading
  * 也称懒汉式
  * 虽然达到了按需初始化的目的，但却带来线程不安全的问题
- * 可以通过 synchronized 解决，但也带来效率下降
+ * 线程当安全的问题，可以通过 synchronized 解决，但也带来效率下降
  */
 public class Singleton_04 {
     private static Singleton_04 INSTANCE;

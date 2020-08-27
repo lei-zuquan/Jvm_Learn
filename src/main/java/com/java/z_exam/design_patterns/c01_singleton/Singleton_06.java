@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
  * 也称懒汉式
  * 虽然达到了按需初始化的目的，但却带来线程不安全的问题
  * 可以通过 synchronized 解决，但也带来效率下降
+ * 通过减少 synchronized 同步锁粒度，发现多线程不安全问题依然存在
+ * 通过采用 DCL 即 Double Check Lock 双端检查机制，出现多线程不安全问题概率大大降低了，但还有存在多线程不安全问题
  */
 public class Singleton_06 {
     private static volatile Singleton_06 INSTANCE;

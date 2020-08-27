@@ -16,6 +16,7 @@ public class Singleton_02 {
 
     private static final Singleton_02 INSTANCE;
 
+    // 通过静态代码块实现单例的实例化
     static {
         INSTANCE = new Singleton_02();
     }
