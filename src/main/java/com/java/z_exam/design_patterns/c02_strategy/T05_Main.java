@@ -5,8 +5,7 @@ import java.util.Arrays;
 import java.util.Properties;
 
 /**
- * @Author: Lei
- * @E-mail: 843291011@qq.com
+ * @Author:
  * @Date: Created in 7:26 上午 2020/8/26
  * @Version: 1.0
  * @Modified By:

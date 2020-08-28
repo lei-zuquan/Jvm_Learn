@@ -1,8 +1,7 @@
 package com.java.z_exam.design_patterns.c02_strategy;
 
 /**
- * @Author: Lei
- * @E-mail: 843291011@qq.com
+ * @Author:
  * @Date: Created in 7:31 上午 2020/8/26
  * @Version: 1.0
  * @Modified By:
