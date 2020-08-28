@@ -8,6 +8,7 @@ package com.java.z_exam.design_patterns.c02_strategy;
  * @Modified By:
  * @Description:
  */
+// 排序类中，将比较器作为参数传入，按照比较器策略来进行大小比较
 public class T05_Sorter<T> {
     public void sort(T[] arr, T05_Comparator comparator) {
 
@@ -24,7 +25,6 @@ public class T05_Sorter<T> {
 
             //System.out.println("经过第" + i + "次循环之后，数组的内容：");
         }
-
     }
 
     private void swap(T[] arr, int i, int j){

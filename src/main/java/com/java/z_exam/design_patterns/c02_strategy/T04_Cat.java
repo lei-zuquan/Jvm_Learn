@@ -8,6 +8,7 @@ package com.java.z_exam.design_patterns.c02_strategy;
  * @Modified By:
  * @Description:
  */
+// 实体类实现Comparable 时指定泛型类型
 public class T04_Cat implements T04_Comparable<T04_Cat> {
     int weight, height;
 
@@ -30,5 +31,4 @@ public class T04_Cat implements T04_Comparable<T04_Cat> {
                 ", height=" + height +
                 '}';
     }
-
 }

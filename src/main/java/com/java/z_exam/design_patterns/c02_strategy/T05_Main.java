@@ -1,5 +1,6 @@
 package com.java.z_exam.design_patterns.c02_strategy;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -43,13 +44,18 @@ public class T05_Main {
         // 通过配置文件加载策略类名，可以动态调整：对修改关闭、对扩展开放（Extensibility Scalability）
         String goodStrategyClassName = "";//PrppertyMgr.get("goodWay");
         try {
-            T05_CatHeightComparator goodStrategy = (T05_CatHeightComparator)Class.forName(goodStrategyClassName).newInstance();
+            //T05_CatHeightComparator goodStrategy = (T05_CatHeightComparator)Class.forName(goodStrategyClassName).newInstance();
+            T05_CatHeightComparator goodStrategy = (T05_CatHeightComparator)Class.forName(goodStrategyClassName).getDeclaredConstructor().newInstance();
             sorter.sort(a, goodStrategy);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
 

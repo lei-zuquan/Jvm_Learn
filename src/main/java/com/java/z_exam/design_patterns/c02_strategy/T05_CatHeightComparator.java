@@ -8,6 +8,7 @@ package com.java.z_exam.design_patterns.c02_strategy;
  * @Modified By:
  * @Description:
  */
+// 按身高大小的比较器
 public class T05_CatHeightComparator implements T05_Comparator<T05_Cat> {
 
     @Override

@@ -31,5 +31,4 @@ public class T03_Cat implements T03_Comparable {
                 ", height=" + height +
                 '}';
     }
-
 }
