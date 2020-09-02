@@ -1,4 +1,4 @@
-package com.java.z_exam.design_patterns.c04_abstract_factory.abstract_class;
+package com.java.z_exam.design_patterns.c03_abstract_factory.abstract_class;
 
 /**
  * @Author: Lei

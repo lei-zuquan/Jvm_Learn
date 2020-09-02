@@ -1,8 +1,8 @@
-package com.java.z_exam.design_patterns.c04_abstract_factory;
+package com.java.z_exam.design_patterns.c03_abstract_factory;
 
-import com.java.z_exam.design_patterns.c04_abstract_factory.bean.C01_AK47;
-import com.java.z_exam.design_patterns.c04_abstract_factory.bean.C01_Bread;
-import com.java.z_exam.design_patterns.c04_abstract_factory.bean.C01_Car;
+import com.java.z_exam.design_patterns.c03_abstract_factory.bean.C01_AK47;
+import com.java.z_exam.design_patterns.c03_abstract_factory.bean.C01_Bread;
+import com.java.z_exam.design_patterns.c03_abstract_factory.bean.C01_Car;
 
 /**
  * @Author: Lei

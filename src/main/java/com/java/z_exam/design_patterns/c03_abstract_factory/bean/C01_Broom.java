@@ -1,6 +1,6 @@
-package com.java.z_exam.design_patterns.c04_abstract_factory.bean;
+package com.java.z_exam.design_patterns.c03_abstract_factory.bean;
 
-import com.java.z_exam.design_patterns.c04_abstract_factory.abstract_class.C01_Vehicle;
+import com.java.z_exam.design_patterns.c03_abstract_factory.abstract_class.C01_Vehicle;
 
 /**
  * @Author: Lei

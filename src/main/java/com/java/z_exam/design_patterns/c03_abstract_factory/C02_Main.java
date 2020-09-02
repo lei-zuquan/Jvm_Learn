@@ -1,9 +1,9 @@
-package com.java.z_exam.design_patterns.c04_abstract_factory;
+package com.java.z_exam.design_patterns.c03_abstract_factory;
 
-import com.java.z_exam.design_patterns.c04_abstract_factory.abstract_class.C01_AbstractFactory;
-import com.java.z_exam.design_patterns.c04_abstract_factory.abstract_class.C01_Food;
-import com.java.z_exam.design_patterns.c04_abstract_factory.abstract_class.C01_Vehicle;
-import com.java.z_exam.design_patterns.c04_abstract_factory.abstract_class.C01_Weapon;
+import com.java.z_exam.design_patterns.c03_abstract_factory.abstract_class.C01_AbstractFactory;
+import com.java.z_exam.design_patterns.c03_abstract_factory.abstract_class.C01_Food;
+import com.java.z_exam.design_patterns.c03_abstract_factory.abstract_class.C01_Vehicle;
+import com.java.z_exam.design_patterns.c03_abstract_factory.abstract_class.C01_Weapon;
 
 /**
  * @Author: Lei
