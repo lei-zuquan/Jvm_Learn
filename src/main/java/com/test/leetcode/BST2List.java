@@ -1,4 +1,4 @@
-package com.test.tree;
+package com.test.leetcode;
 
 /**
  * @Author:
