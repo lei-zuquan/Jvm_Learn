@@ -1,5 +1,8 @@
 package com.test.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author:
  * @Date: Created in 5:29 下午 2020/9/26
@@ -8,6 +11,7 @@ package com.test.leetcode;
  * @Description:
  */
 
+// 题目：中序遍历二叉搜索树
 class Node {
     int val;
     Node left;
@@ -42,6 +46,11 @@ public class BstTree {
 
         // 中序输出
         println(root);
+        List<Integer> list = new ArrayList<>();
+        println(root, list);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 
     private static void println(Node root) {
@@ -57,6 +66,22 @@ public class BstTree {
 
         if (root.right != null) {
             println(root.right);
+        }
+    }
+
+
+    private static void println(Node root, List<Integer> list) {
+        if (root == null)
+            return;
+
+        if (root.left != null) {
+            println(root.left, list);
+        }
+
+        list.add(root.val);
+
+        if (root.right != null) {
+            println(root.right, list);
         }
     }
 }

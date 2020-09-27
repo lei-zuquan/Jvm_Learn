@@ -7,7 +7,8 @@ package com.test.leetcode;
  * @Modified By:
  * @Description:
  */
-//将二叉搜索树转化为有序的双向链表, 不需要额外的辅助空间。
+
+// 题目：将二叉搜索树转化为有序的双向链表, 不需要额外的辅助空间。
 public class BST2List {
 
     private class BinaryNode implements Comparable<BinaryNode>{
