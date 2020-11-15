@@ -10,19 +10,18 @@ import java.util.Vector;
  * @Description:
  */
 // synchronized 关键字：对某个对象加锁
-public class T01 {
+public class T02 {
     private int count = 10;
-    private Object o = new Object();
 
     public void m() {
-        synchronized(o) { // 任何线程要想执行下面的代码，必须先拿到o的锁
+        synchronized(this) { // 任何线程要想执行下面的代码，必须先拿到this 的锁
             count--;
             System.out.println(Thread.currentThread().getName() + " count = " + count);
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        T01 t01 = new T01();
+        T02 t01 = new T02();
         Vector vector = new Vector();
         for (int i = 0; i < 20; i++) {
             Thread thread = new Thread(() -> {
