@@ -16,9 +16,9 @@ public class T05 implements Runnable {
     private /*volatile*/ int count = 100; // volatile 保证多线程可见性
 
     @Override
-    public /*synchronized*/ void run() { // 加锁，序列化执行，性能有下降
+    public synchronized void run() { // 加锁，序列化执行，性能有下降
         count--;
-        //System.out.println(Thread.currentThread().getName() + " count = " + count);
+        System.out.println(Thread.currentThread().getName() + " count = " + count);
     }
 
     public static void main(String[] args) throws InterruptedException {
